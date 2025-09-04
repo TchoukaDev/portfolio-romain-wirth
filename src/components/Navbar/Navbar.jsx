@@ -8,6 +8,7 @@ import Spy from "../Spy/Spy";
 import { useMediaQuery } from "react-responsive";
 
 export default function Navbar() {
+  // Variables
   const [isOpen, setIsOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
   const [active, setActive] = useState(null);
@@ -23,7 +24,10 @@ export default function Navbar() {
 
   const links = allLinks.filter((link) => link.show);
 
+  // Références
   const menuRef = useRef();
+
+  // Functions
   // Fermeture du menu hamburger au clic extérieur
   useEffect(() => {
     function handleClick(e) {
@@ -40,11 +44,26 @@ export default function Navbar() {
     };
   });
 
+  const scrollToClickedSection = (id) => {
+    const section = document.getElementById(id);
+    if (section) {
+      const y = section.getBoundingClientRect().top + window.scrollY - 80; // 80px = hauteur navbar
+      window.scrollTo({ top: y, behavior: "smooth" });
+    }
+  };
+
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  if (!mounted) return null;
+  // Placeholder avec la même hauteur que la navbar finale
+  if (!mounted) {
+    return (
+      <nav className="sticky top-0 z-50 px-6 py-3 bg-[#0a0f1f] shadow-md md:shadow-lg shadow-blue-900/50 border-b border-blue-800/30">
+        <div className="h-6"></div>
+      </nav>
+    );
+  }
 
   return (
     <>
@@ -52,7 +71,12 @@ export default function Navbar() {
       <nav className="sticky top-0 z-50 px-6 py-3 bg-[#0a0f1f] shadow-md md:shadow-lg shadow-blue-900/50 border-b border-blue-800/30">
         {isLg ? (
           // Navbar Desktop
-          <ul className="flex justify-end items-center gap-6  text-blue-100">
+          <motion.ul
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3 }}
+            className="flex justify-end items-center gap-6  text-blue-100"
+          >
             {/* Liens */}
             {links.map((link) => (
               <li
@@ -62,14 +86,7 @@ export default function Navbar() {
                     ? "text-blue-300 underline underline-offset-4"
                     : ""
                 }`}
-                onClick={() => {
-                  const section = document.getElementById(link.id);
-                  if (section) {
-                    const y =
-                      section.getBoundingClientRect().top + window.scrollY - 80; // 80px = hauteur navbar
-                    window.scrollTo({ top: y, behavior: "smooth" });
-                  }
-                }}
+                onClick={() => scrollToClickedSection(link.id)}
               >
                 {link.name}
               </li>
@@ -85,10 +102,15 @@ export default function Navbar() {
             <li>
               <FaLinkedin className="w-5 h-5 cursor-pointer hover:text-blue-400 transition-colors duration-300" />
             </li>
-          </ul>
+          </motion.ul>
         ) : (
           // Navbar mobile (menu hamburger)
-          <div className="relative flex  justify-end gap-6">
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3 }}
+            className="relative flex  justify-end gap-6"
+          >
             {/*Bouton hamburger/croix */}
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -118,17 +140,7 @@ export default function Navbar() {
                             ? "text-blue-300 underline underline-offset-4"
                             : ""
                         }`}
-                        onClick={() => {
-                          const section = document.getElementById(link.id);
-                          if (section) {
-                            const y =
-                              section.getBoundingClientRect().top +
-                              window.scrollY -
-                              80; // 80px = hauteur navbar
-                            window.scrollTo({ top: y, behavior: "smooth" });
-                            setIsOpen(false);
-                          }
-                        }}
+                        onClick={() => scrollToClickedSection(link.id)}
                       >
                         {link.name}
                       </li>
@@ -150,7 +162,7 @@ export default function Navbar() {
                 <FaLinkedin className="w-5 h-5 cursor-pointer hover:text-blue-400 transition-colors duration-300" />
               </li>
             </ul>
-          </div>
+          </motion.div>
         )}
       </nav>
     </>

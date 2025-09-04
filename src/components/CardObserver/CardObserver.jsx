@@ -1,7 +1,7 @@
 "use client";
 import { useEffect } from "react";
 
-// Animation Fade-in des sous-sections .card
+// Animation Fade-in des sous-sections .card quand elles entrent à l'écran
 export default function CardObserver() {
   useEffect(() => {
     const cards = document.querySelectorAll(".card");
