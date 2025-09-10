@@ -9,7 +9,7 @@ export function generateMetadata({ params }) {
 }
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="fr">
       <body className="bg-[#0d1325] text-blue-50 relative font-raleway min-h-screen cursor-default antialiased">
         <Navbar />
         <Header />
