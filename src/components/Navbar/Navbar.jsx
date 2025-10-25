@@ -14,15 +14,12 @@ export default function Navbar() {
   const [active, setActive] = useState(null);
   const isLg = useMediaQuery({ query: "(min-width: 1024px)" });
 
-  const allLinks = [
-    { name: "Présentation", id: "infos", show: isLg }, // seulement sur desktop
-    { name: "À propos", id: "about", show: !isLg }, // seulement sur mobile
-    { name: "Services", id: "services", show: !isLg }, // seulement sur mobile
-    { name: "Stack", id: "stack", show: !isLg }, // seulement sur mobile
-    { name: "Projets", id: "projects", show: true }, // toujours affiché
+  const links = [
+    { name: "À propos", id: "about" }, // seulement sur mobile
+    { name: "Services", id: "services" }, // seulement sur mobile
+    { name: "Stack", id: "stack" }, // seulement sur mobile
+    { name: "Projets", id: "projects" }, // toujours affiché
   ];
-
-  const links = allLinks.filter((link) => link.show);
 
   // Références
   const menuRef = useRef();
@@ -94,7 +91,10 @@ export default function Navbar() {
 
             {/* Icônes */}
             <li>
-              <Mail className="w-5 h-5 cursor-pointer hover:text-blue-400 transition-colors duration-300" />
+              <Mail
+                onClick={() => scrollToClickedSection("contact")}
+                className="w-5 h-5 cursor-pointer hover:text-blue-400 transition-colors duration-300"
+              />
             </li>
             <li>
               <FaGithub className="w-5 h-5 cursor-pointer hover:text-blue-400 transition-colors duration-300" />
@@ -151,7 +151,9 @@ export default function Navbar() {
               {/* Icônes */}
               <li>
                 <Mail
-                  onClick={() => setIsOpen(false)}
+                  onClick={() => {
+                    setIsOpen(false), scrollToClickedSection("contact");
+                  }}
                   className="w-5 h-5 cursor-pointer hover:text-blue-400 transition-colors duration-300"
                 />
               </li>

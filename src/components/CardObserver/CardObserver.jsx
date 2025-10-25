@@ -16,7 +16,7 @@ export default function CardObserver() {
       },
       {
         threshold: 0,
-      }
+      },
     );
 
     cards.forEach((section) => observer.observe(section));
