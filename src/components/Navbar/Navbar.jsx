@@ -15,10 +15,10 @@ export default function Navbar() {
   const isLg = useMediaQuery({ query: "(min-width: 1024px)" });
 
   const links = [
-    { name: "À propos", id: "about" }, // seulement sur mobile
-    { name: "Services", id: "services" }, // seulement sur mobile
-    { name: "Stack", id: "stack" }, // seulement sur mobile
-    { name: "Projets", id: "projects" }, // toujours affiché
+    { name: "À propos", id: "about" },
+    { name: "Services", id: "services" },
+    { name: "Stack", id: "stack" },
+    { name: "Projets", id: "projects" },
   ];
 
   // Références
@@ -97,10 +97,16 @@ export default function Navbar() {
               />
             </li>
             <li>
-              <FaGithub className="w-5 h-5 cursor-pointer hover:text-blue-400 transition-colors duration-300" />
+              <a
+                href="https://github.com/TchoukaDev"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <FaGithub className="w-5 h-5 cursor-pointer hover:text-blue-400 transition-colors duration-300" />
+              </a>
             </li>
             <li>
-              <FaLinkedin className="w-5 h-5 cursor-pointer hover:text-blue-400 transition-colors duration-300" />
+              {/* <FaLinkedin className="w-5 h-5 cursor-pointer hover:text-blue-400 transition-colors duration-300" /> */}
             </li>
           </motion.ul>
         ) : (
@@ -158,10 +164,16 @@ export default function Navbar() {
                 />
               </li>
               <li>
-                <FaGithub className="w-5 h-5 cursor-pointer hover:text-blue-400 transition-colors duration-300" />
+                <a
+                  href="https://github.com/TchoukaDev"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <FaGithub className="w-5 h-5 cursor-pointer hover:text-blue-400 transition-colors duration-300" />
+                </a>
               </li>
               <li>
-                <FaLinkedin className="w-5 h-5 cursor-pointer hover:text-blue-400 transition-colors duration-300" />
+                {/* <FaLinkedin className="w-5 h-5 cursor-pointer hover:text-blue-400 transition-colors duration-300" /> */}
               </li>
             </ul>
           </motion.div>

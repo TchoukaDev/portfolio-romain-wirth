@@ -107,7 +107,7 @@ export default function Stack() {
           // Catégories
           <div
             key={group.category}
-            className="p-10 bg-primary border rounded-lg"
+            className="p-10 bg-primary border border-blue-400 rounded-lg hover:-translate-y-3 transition-all shadow-md hover:shadow-lg shadow-blue-400"
           >
             <h3 className="mb-10 text-center">{group.category}</h3>
             <div className="flex flex-wrap  justify-center  gap-5 lg:gap-10">
