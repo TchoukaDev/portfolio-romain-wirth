@@ -43,7 +43,7 @@ export default function Services() {
         {services.map((service) => (
           <div
             key={service.title}
-            className="mb-5  md:mb-6 border border-blue-400 bg-primary  p-5 rounded-lg hover:-translate-y-3 transition-all shadow-md hover:shadow-lg shadow-blue-400"
+            className="mb-5  md:mb-6 border border-blue-50 bg-primary  p-5 rounded-lg hover:-translate-y-3 transition-all shadow-md hover:shadow-lg shadow-blue-400"
           >
             <div className="flex flex-col items-center justify-center gap-2 mb-8 text-blue-300">
               <h3>{service.title}</h3>

@@ -11,7 +11,7 @@ export default function Home() {
       {/* Observer pour l'animation des cartes */}
       <CardObserver />
 
-      <div className="w-8/10 space-y-15 my-20 mx-auto">
+      <div className=" w-9/10 md:w-9/10 lg:w-8/10 space-y-15 my-20 mx-auto">
         {/* ---A propos--- */}
         <About />
 
