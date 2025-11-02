@@ -84,6 +84,11 @@ export default function ContactForm() {
           onSubmit={handleSubmit(onSubmit)}
           className="max-w-2xl mx-auto flex flex-col gap-6 items-center"
         >
+          <p className="text-center mb-10">
+            Vous avez une question ou souhaitez travailler avec moi? N'hésitez
+            pas à me contacter via ce formulaire, je vous répondrai au plus
+            vite!
+          </p>
           {/* Informations personnelles */}
           <div className="flex flex-col gap-8 items-center w-full">
             {/* Nom de famille */}
@@ -187,7 +192,7 @@ export default function ContactForm() {
             </div>
           </div>
           {/* Choix du mode de contact */}
-          <div className="text-center mt-10 mb-8">
+          <div className="text-center mt-5 mb-2">
             <p className="mb-3">
               Par quel moyen préférez-vous être recontacté?*
             </p>
@@ -245,11 +250,11 @@ export default function ContactForm() {
               )}
           </div>
           {/* Message */}
-          <div className="w-full max-w-[400px] sm:w-fit relative">
+          <div className="w-full max-w-[700px] md:w-fit relative">
             <textarea
               className="input peer  w-fit max-w-full"
               rows={8}
-              cols={50}
+              cols={80}
               id="message"
               {...register("message")}
               placeholder=""
