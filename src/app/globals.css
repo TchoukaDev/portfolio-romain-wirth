@@ -37,23 +37,45 @@
   --color-secondary: #0a0f1f;
 }
 
-.card {
-  @apply bg-secondary px-5 py-5 sm:px-10 md:px-20 sm:py-10  w-full rounded-xl text-xs sm:text-base shadow-lg shadow-blue-900/40 opacity-0 transition-all;
+@layer components {
+  .card {
+    @apply bg-secondary px-5 py-5 sm:px-10 md:px-20 sm:py-10  w-full rounded-xl text-xs sm:text-base shadow-lg shadow-blue-900/40 opacity-0 transition-all;
 
-  backface-visibility: hidden;
-  transform: translateZ(0); /* force le GPU mais garde la netteté */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    backface-visibility: hidden;
+    transform: translateZ(0); /* force le GPU mais garde la netteté */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .card.card.in-view {
+    opacity: 1;
+  }
+  .formError {
+    @apply text-red-600 text-shadow-xs text-shadow-gray-400 my-1 text-sm;
+  }
+  .formSuccess {
+    @apply text-shadow-xs text-shadow-blue-400 my-1 text-center;
+  }
+  .input {
+    @apply w-full max-w-full md:w-[450px] border text-primary font-semibold border-gray-400 rounded px-4 pt-7 pb-2 bg-gray-100 text-sm placeholder-transparent outline-none focus:border-2 focus:border-blue-500 shadow-sm shadow-blue-400;
+  }
+
+  h2 {
+    @apply text-base md:text-2xl font-semibold mb-7 sm:mb-15 underline italic text-center text-blue-400;
+  }
+
+  h3 {
+    @apply text-xs sm:text-lg italic font-semibold  text-blue-300;
+  }
 }
 
-.card.card.in-view {
-  opacity: 1;
+/* Neutraliser le comportement d'autofill */
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+  transition:
+    background-color 600000s 0s,
+    color 600000s 0s;
 }
-
-h2 {
-  @apply text-base md:text-2xl font-semibold mb-7 sm:mb-15 underline italic text-center text-blue-400;
-}
-
-h3 {
-  @apply text-xs sm:text-lg italic font-semibold  text-blue-300;
+input[data-autocompleted] {
+  background-color: transparent !important;
 }
