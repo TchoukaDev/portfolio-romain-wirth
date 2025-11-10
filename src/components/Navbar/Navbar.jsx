@@ -56,7 +56,10 @@ export default function Navbar() {
   // Placeholder avec la même hauteur que la navbar finale
   if (!mounted) {
     return (
-      <nav className="sticky top-0 z-50 px-6 py-3 bg-[#0a0f1f] shadow-md md:shadow-lg shadow-blue-900/50 border-b border-blue-800/30">
+      <nav
+        aria-label="Barre de navigation principale"
+        className="sticky top-0 z-50 px-6 py-3 bg-secondary  shadow-md md:shadow-lg shadow-blue-900/50 border-b border-blue-800/30"
+      >
         <div className="h-6"></div>
       </nav>
     );
@@ -65,7 +68,10 @@ export default function Navbar() {
   return (
     <>
       <Spy onActiveChange={setActive} />
-      <nav className="sticky top-0 z-50 px-6 py-3 bg-[#0a0f1f] shadow-md md:shadow-lg shadow-blue-900/50 border-b border-blue-800/30">
+      <nav
+        aria-label="Barre de navigation principale"
+        className="sticky top-0 z-50 px-6 py-3 bg-secondary  shadow-md md:shadow-lg shadow-blue-900/50 border-b border-blue-800/30"
+      >
         {isLg ? (
           // Navbar Desktop
           <motion.ul
@@ -77,6 +83,8 @@ export default function Navbar() {
             {/* Liens */}
             {links.map((link) => (
               <li
+                aria-current={active === link.id ? "page" : undefined}
+                aria-label={`Aller à la section ${link.name}`}
                 key={link.id}
                 className={`cursor-pointer hover:text-blue-400 transition-colors duration-300 font-medium ${
                   active === link.id
@@ -91,16 +99,20 @@ export default function Navbar() {
 
             {/* Icônes */}
             <li>
-              <Mail
+              <button
+                aria-label="Aller à la section contact"
                 onClick={() => scrollToClickedSection("contact")}
-                className="w-5 h-5 cursor-pointer hover:text-blue-400 transition-colors duration-300"
-              />
+                className="cursor-pointer align-middle"
+              >
+                <Mail className="w-5 h-5 hover:text-blue-400 transition-colors duration-300" />
+              </button>
             </li>
             <li>
               <a
                 href="https://github.com/TchoukaDev"
                 target="_blank"
                 rel="noreferrer"
+                aria-label="Ouvrir le profil GitHub de Romain Wirth (TchoukaDev)"
               >
                 <FaGithub className="w-5 h-5 cursor-pointer hover:text-blue-400 transition-colors duration-300" />
               </a>
@@ -121,6 +133,9 @@ export default function Navbar() {
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-blue-100 text-2xl cursor-pointer "
+              aria-label="Ouvrir ou fermer le menu de navigation"
+              aria-expanded={isOpen}
+              aria-controls="menu-mobile"
             >
               {isOpen ? <FaTimes /> : <FaBars />}
             </button>
@@ -139,16 +154,19 @@ export default function Navbar() {
                     className="absolute right-0 top-full mt-3 w-full bg-[#0a0f1f] border border-blue-800/50 shadow-lg flex flex-col gap-3 p-4 text-blue-100"
                   >
                     {links.map((link) => (
-                      <li
-                        key={link.id}
-                        className={`cursor-pointer text-center hover:text-blue-400 transition-colors duration-300 font-medium ${
-                          active === link.id
-                            ? "text-blue-300 underline underline-offset-4"
-                            : ""
-                        }`}
-                        onClick={() => scrollToClickedSection(link.id)}
-                      >
-                        {link.name}
+                      <li key={link.id} role="none">
+                        <button
+                          role="menuitem"
+                          aria-label={`Aller à la section ${link.name}`}
+                          className={`cursor-pointer text-center hover:text-blue-400 transition-colors duration-300 font-medium ${
+                            active === link.id
+                              ? "text-blue-300 underline underline-offset-4"
+                              : ""
+                          }`}
+                          onClick={() => scrollToClickedSection(link.id)}
+                        >
+                          {link.name}
+                        </button>{" "}
                       </li>
                     ))}
                   </motion.ul>
@@ -156,15 +174,20 @@ export default function Navbar() {
               </AnimatePresence>{" "}
               {/* Icônes */}
               <li>
-                <Mail
+                <button
                   onClick={() => {
-                    setIsOpen(false), scrollToClickedSection("contact");
+                    (setIsOpen(false), scrollToClickedSection("contact"));
                   }}
-                  className="w-5 h-5 cursor-pointer hover:text-blue-400 transition-colors duration-300"
-                />
+                  className="cursor-pointer align-middle"
+                  aria-label="Aller à la section contact"
+                >
+                  {" "}
+                  <Mail className="w-5 h-5  hover:text-blue-400 transition-colors duration-300" />
+                </button>
               </li>
               <li>
                 <a
+                  aria-label="Se rendre sur le GitHub de Romain WIRTH (TchoukaDev)"
                   href="https://github.com/TchoukaDev"
                   target="_blank"
                   rel="noreferrer"
