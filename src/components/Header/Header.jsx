@@ -1,6 +1,26 @@
 import styles from "./Header.module.css";
 
-export default function Header() {
+export default function Header({ suspended }) {
+  if (suspended) {
+    return (
+      <header
+        id="home"
+        className="relative flex flex-col justify-center items-center text-center p-4 md:p-12 bg-gradient-to-b from-[#0a0f1f] via-[#0d1325] to-[#05070d]"
+      >
+        {/* Halo bleu derrière le nom */}
+        <div className="absolute w-[300px] h-[100px] md:h-[300px] bg-blue-600/20 blur-3xl rounded-full top-10"></div>
+
+        {/* Nom */}
+        <h1
+          className={`${styles.animatedName} text-xl md:text-6xl font-bold tracking-wide text-white drop-shadow-lg transition-all`}
+        >
+          <span className="text-blue-50">
+            Ce site est actuellement indisponible
+          </span>{" "}
+        </h1>
+      </header>
+    );
+  }
   return (
     <header
       id="home"
