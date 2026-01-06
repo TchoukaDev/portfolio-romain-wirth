@@ -8,7 +8,7 @@ export default function Projects() {
       imageSrc: "/projects/clothilde-baudet.png",
       description:
         "Site vitrine clair et apaisant pour présenter son activité de psychologue et permettre la prise de contact.",
-      url: "https://https://clothilde-baudet.fr/",
+      url: "https://clothilde-baudet.fr/",
     },
     {
       title: "Les randonneurs des sables",
