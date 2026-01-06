@@ -1,11 +1,12 @@
-import { Code2, Globe, HeartHandshake } from "lucide-react";
+import { Code2, HeartHandshake, RefreshCcw } from "lucide-react";
 import styles from "../Sections.module.css";
 
 export default function Services() {
   const services = [
     {
       title: "Création de site",
-      icon: <Globe className={styles.icon} />,
+      icon: <Code2 className={styles.icon} />,
+      highlight: "Un site qui attire vos clients et reflète votre activité",
       description: [
         "Site vitrine ou e-commerce",
         "Design professionnel à votre image",
@@ -14,16 +15,18 @@ export default function Services() {
     },
     {
       title: "Refonte de site",
-      icon: <Code2 className={styles.icon} />,
+      icon: <RefreshCcw className={styles.icon} />,
+      highlight: "Transformez votre site en un outil clair et efficace",
       description: [
         "Modernisation de votre site existant",
         "Nouveau design et meilleure ergonomie",
-        "Un site plus clair et plus efficace",
+        "Amélioration des performances et de l'accessibilité",
       ],
     },
     {
       title: "Accompagnement",
       icon: <HeartHandshake className={styles.icon} />,
+      highlight: "Un suivi humain, du début à la fin.",
       description: [
         "Conseils adaptés à vos besoins",
         "Ajout de fonctionnalités utiles",
@@ -44,7 +47,10 @@ export default function Services() {
           >
             <div className="flex flex-col items-center justify-center gap-2 mb-8 text-blue-300">
               <h3>{service.title}</h3>
-              {service.icon}
+              {service.icon}{" "}
+              <p className="text-sm md:text-[13px] text-center mt-1">
+                {service.highlight}
+              </p>
             </div>
             <ul className="list-disc text-xm md:text-[14px] ml-5 space-y-1 md:space-y-3">
               {service.description.map((item, idx) => (
