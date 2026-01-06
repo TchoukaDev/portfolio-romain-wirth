@@ -5,7 +5,7 @@ export default function Projects() {
   const projects = [
     {
       title: "Clothilde Baudet - Psychologue",
-      imageSrc: "/projects/clothildebaudet.png",
+      imageSrc: "/projects/clothilde-baudet.png",
       description:
         "Site vitrine clair et apaisant pour présenter son activité de psychologue et permettre la prise de contact.",
       url: "https://https://clothilde-baudet.fr/",
