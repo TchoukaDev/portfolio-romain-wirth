@@ -18,7 +18,8 @@ export default function Navbar() {
     { name: "À propos", id: "about" },
     { name: "Services", id: "services" },
     { name: "Stack", id: "stack" },
-    { name: "Projets", id: "projects" },
+    { name: "Réalisations", id: "projects" },
+    { name: "Applications sur-mesure", id: "advanced" },
   ];
 
   // Références

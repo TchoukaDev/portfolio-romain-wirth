@@ -4,33 +4,30 @@ import styles from "../Sections.module.css";
 export default function Services() {
   const services = [
     {
-      title: "Sites web & E-commerce",
+      title: "Création de site",
       icon: <Globe className={styles.icon} />,
-      // ou : <Package />
       description: [
-        "Du site vitrine à la boutique en ligne",
-        "Design professionnel et interface intuitive",
-        "Gestion de contenu en toute autonomie",
+        "Site vitrine ou e-commerce",
+        "Design professionnel à votre image",
+        "Gestion en autonomie",
       ],
     },
     {
-      title: "Applications web",
+      title: "Refonte de site",
       icon: <Code2 className={styles.icon} />,
-      // ou : <Sparkles />
       description: [
-        "Solutions métier personnalisées",
-        "Interfaces modernes et performantes",
-        "Évolutives selon vos besoins",
+        "Modernisation de votre site existant",
+        "Nouveau design et meilleure ergonomie",
+        "Un site plus clair et plus efficace",
       ],
     },
     {
-      title: "Accompagnement complet",
+      title: "Accompagnement",
       icon: <HeartHandshake className={styles.icon} />,
-      // ou : <Handshake />
       description: [
-        "Conseil et analyse de vos besoins",
-        "Optimisation et maintenance",
-        "Formation et support technique",
+        "Conseils adaptés à vos besoins",
+        "Ajout de fonctionnalités utiles",
+        "Support et disponibilité",
       ],
     },
   ];
@@ -43,7 +40,7 @@ export default function Services() {
         {services.map((service) => (
           <div
             key={service.title}
-            className="mb-5  md:mb-6 border border-blue-50 bg-primary  p-5 rounded-lg hover:-translate-y-3 transition-all shadow-md hover:shadow-lg shadow-blue-400"
+            className="mb-5  md:mb-6 border border-blue-50 bg-primary  p-6 rounded-lg hover:-translate-y-3 transition-all shadow-md hover:shadow-lg shadow-blue-400"
           >
             <div className="flex flex-col items-center justify-center gap-2 mb-8 text-blue-300">
               <h3>{service.title}</h3>

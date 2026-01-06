@@ -1,5 +1,6 @@
 import CardObserver from "@/components/CardObserver/CardObserver";
 import About from "@/components/Sections/About/About";
+import Advanced from "@/components/Sections/Advanced/Advanced";
 import Contact from "@/components/Sections/Contact/Contact";
 import Projects from "@/components/Sections/Projects/Projects";
 import Services from "@/components/Sections/Services/Services";
@@ -23,6 +24,9 @@ export default function Home() {
 
         {/* Projets */}
         <Projects />
+
+        {/* --- Projets avancés --- */}
+        <Advanced />
 
         {/* Contact */}
         <Contact />

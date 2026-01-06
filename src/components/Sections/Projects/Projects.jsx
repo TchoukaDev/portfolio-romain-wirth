@@ -1,3 +1,4 @@
+import Button from "@/components/Button/Button";
 import Image from "next/image";
 
 export default function Projects() {
@@ -20,7 +21,7 @@ export default function Projects() {
 
   return (
     <section className="card spy" id="projects">
-      <h2>Projets réalisés</h2>
+      <h2>Réalisations</h2>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-15">
         {projects.map((p, i) => (
           <a
@@ -52,6 +53,10 @@ export default function Projects() {
             </div>
           </a>
         ))}
+      </div>
+      <div className="text-center mt-15">
+        <p className="mb-4">Envie d'un site qui vous ressemble?</p>
+        <Button href="#contact">Discutons-en</Button>
       </div>
     </section>
   );

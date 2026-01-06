@@ -46,14 +46,14 @@ export default function Stack() {
     {
       category: "Back-end & Bases de données",
       tech: [
-        {
-          icon: <DiPhp color="#777BB4" className={styles.icon} />,
-          name: "PHP",
-        },
-        {
-          icon: <DiMysql color="#4479A1" className={styles.icon} />,
-          name: "MySQL",
-        },
+        // {
+        //   icon: <DiPhp color="#777BB4" className={styles.icon} />,
+        //   name: "PHP",
+        // },
+        // {
+        //   icon: <DiMysql color="#4479A1" className={styles.icon} />,
+        //   name: "MySQL",
+        // },
         {
           icon: <SiMongodb color="#00ed64" className={styles.icon} />,
           name: "MongoDB",
@@ -110,7 +110,7 @@ export default function Stack() {
   ];
   return (
     <section id="stack" className="card spy">
-      <h2>Stack</h2>
+      <h2>Technologies utilisées</h2>
       {/* Grille */}
       <div className="grid  grid-cols-1 md:grid-cols-2 gap-10">
         {stack.map((group) => (
