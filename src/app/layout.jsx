@@ -59,10 +59,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="fr">
       <body className="bg-primary text-blue-50 relative font-raleway min-h-screen cursor-default">
-        {/* <Navbar /> */}
-        <Header suspended />
-        {/* {children} */}
-        {/* <Footer /> */}
+        <Navbar />
+        <Header />
+        {children}
+        <Footer />
       </body>
     </html>
   );
