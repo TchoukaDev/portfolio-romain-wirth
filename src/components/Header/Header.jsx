@@ -26,7 +26,7 @@ export default function Header() {
       <p
         className={`${styles.animatedRole} text-sm md:text-xl font-light tracking-wide text-blue-50`}
       >
-        Développeur FullStack
+        Développeur Web
       </p>
 
       {/* Slogan */}

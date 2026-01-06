@@ -5,7 +5,7 @@ import Navbar from "@/components/Navbar/Navbar";
 
 export const metadata = {
   title: {
-    default: "Romain WIRTH | Développeur Web FullStack",
+    default: "Romain WIRTH | Développeur Web",
     template: "%s | Portfolio de Romain WIRTH",
   },
   description:
@@ -22,7 +22,7 @@ export const metadata = {
     "WordPress",
   ],
   openGraph: {
-    title: "Romain WIRTH | Développeur Web FullStack",
+    title: "Romain WIRTH | Développeur Web",
     description:
       "Découvrez mes projets et compétences en développement web moderne avec React et Next.js.",
     url: "https://romainwirth.fr",
