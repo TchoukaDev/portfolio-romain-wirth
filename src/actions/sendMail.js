@@ -10,6 +10,15 @@ export const sendMail = async (prevState, formData) => {
   const standardError = "Veuillez corriger les champs dans le formulaire";
 
   try {
+    // Guard : Vérifier que les variables d'environnement sont définies
+    if (!process.env.RESEND_API_KEY || !process.env.EMAIL_TO) {
+      console.error("Erreur : RESEND_API_KEY ou EMAIL_TO non définis");
+      return {
+        success: false,
+        error: "Erreur de configuration serveur. Veuillez réessayer plus tard.",
+      };
+    }
+
     // Extraire les données du FormData
     const rawData = {
       firstname: formData.get("firstname"),
