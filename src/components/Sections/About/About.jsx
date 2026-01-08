@@ -9,7 +9,8 @@ export default function About() {
         <p>
           J'accompagne les artisans, indépendants et petites entreprises qui
           veulent un site à leur image : clair, professionnel et facile à faire
-          vivre au quotidien.
+          vivre au quotidien. J'aide également les associations à développer
+          leur présence en ligne.
         </p>{" "}
         <p>
           Que ce soit pour créer votre premier site, moderniser un site existant
