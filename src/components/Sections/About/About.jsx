@@ -5,7 +5,14 @@ export default function About() {
     <section id="about" className="card spy">
       <h2>A propos</h2>
       <div className="space-y-3 leading-relaxed">
-        <p>Je suis Romain Wirth, développeur web freelance.</p>{" "}
+        <p className="text-center font-semibold mb-7">
+          Lancement officiel le 11 mars 2026 — mais vous pouvez déjà me
+          contacter.
+        </p>
+        <p>
+          Je suis Romain Wirth, développeur web freelance en reconversion
+          professionnelle.
+        </p>{" "}
         <p>
           J'accompagne les artisans, indépendants et petites entreprises qui
           veulent un site à leur image : clair, professionnel et facile à faire
