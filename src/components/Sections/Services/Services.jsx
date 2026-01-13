@@ -8,7 +8,7 @@ export default function Services() {
       icon: <Code2 className={styles.icon} />,
       highlight: "Un site qui attire vos clients et reflète votre activité",
       description: [
-        "Site vitrine ou e-commerce",
+        "Site vitrine ou petit commerce en ligne",
         "Design professionnel à votre image",
         "Gestion en autonomie",
       ],
