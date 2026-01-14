@@ -19,15 +19,15 @@ export default function Projects() {
       techno: <SiWordpress />,
       category: "vitrine",
     },
-    // {
-    //   title: "FlowerPower - Boutique de fleurs",
-    //   imageSrc: "/projects/flowerpower.png",
-    //   description:
-    //     "Site vitrine avec boutique en ligne : catalogue produits, panier, paiement.",
-    //   url: "https://flowerpower.romainwirth.fr/",
-    //   techno: <SiWordpress />,
-    //   category: "vitrine",
-    // },
+    {
+      title: "FlowerPower - Boutique de fleurs",
+      imageSrc: "/projects/flowerpower.png",
+      description:
+        "Site vitrine avec boutique en ligne : catalogue produits, panier, paiement.",
+      url: "https://flowerpower.romainwirth.fr/",
+      techno: <SiWordpress />,
+      category: "vitrine",
+    },
     {
       title: "Marche aquatique - Les randonneurs des sables",
       imageSrc: "/projects/lesrandonneurs.png",
