@@ -5,6 +5,7 @@ import Contact from "@/components/Sections/Contact/Contact";
 import Projects from "@/components/Sections/Projects/Projects";
 import Services from "@/components/Sections/Services/Services";
 import Stack from "@/components/Sections/Stack/Stack";
+import Testimonials from "@/components/Sections/Testimonials/Testimonials";
 
 export default function Home() {
   return (
@@ -27,6 +28,9 @@ export default function Home() {
 
         {/* --- Projets avancés --- */}
         <Advanced />
+
+        {/* --- Témoignages --- */}
+        <Testimonials />
 
         {/* Contact */}
         <Contact />
