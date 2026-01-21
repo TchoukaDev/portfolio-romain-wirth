@@ -100,16 +100,16 @@ export default function Projects() {
           >
             <h3 className="text-center">{p.title}</h3>
 
-            <div className="w-full max-w-[350px]">
-              <Image
-                width={350}
-                height={0}
-                alt={`projet ${i + 1}`}
-                className="h-auto w-full object-cover rounded"
-                src={p.imageSrc}
-                priority
-              />
-            </div>
+            <div className="w-full max-w-[350px] relative aspect-[7/4]">
+  <Image
+    src={p.imageSrc}
+    alt={`projet ${i + 1}`}
+    fill
+    className="object-contain rounded"
+    sizes="(max-width: 1024px) 100vw, 50vw"
+  />
+</div>
+
 
             <p className="text-xs sm:text-sm text-center w-full max-w-[350px] leading-relaxed">
               {p.description}

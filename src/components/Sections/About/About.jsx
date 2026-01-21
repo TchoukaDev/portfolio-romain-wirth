@@ -30,7 +30,7 @@ export default function About() {
        </div>
        <div className="relative lg:size-64 md:size-52 size-40 shrink-0 shadow-2xl shadow-blue-500/50 rounded-full">
           <Image src="/assets/images/photopro.png" alt="Romain Wirth" fill className="rounded-full shrink-0 aspect-square object-cover"  sizes="(min-width: 1024px) 256px, (min-width: 768px) 208px, 160px" priority />
-          <div className="absolute  inset-0 rounded-full bg-gradient-to-br from-blue-500/20 to-blue-900/20"></div>
+         
         </div>
       
       </div>
