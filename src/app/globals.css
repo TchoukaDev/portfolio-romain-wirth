@@ -59,7 +59,7 @@
     opacity: 1;
   }
   .formError {
-    @apply text-red-600 text-shadow-xs text-shadow-gray-400 my-1 text-sm;
+    @apply text-red-500 font-semibold text-center my-1 text-sm;
   }
   .formSuccess {
     @apply text-shadow-xs text-shadow-blue-400 my-1 text-center;

@@ -231,7 +231,7 @@ useEffect(() => {
             <fieldset aria-required="true" aria-invalid={clientErrors.wayToContact ? "true" : "false"} aria-errormessage={clientErrors.wayToContact ? "wayToContact-error" : undefined} aria-live="polite" aria-atomic="true">
           
             <p className="mb-3">
-              <legend>Par quel moyen préférez-vous être recontacté?*</legend>
+              <legend>Par quel moyen préférez-vous être recontacté?</legend>
             </p>
             <div className="flex justify-center text-center items-center gap-10 mb-3">
               <div className="flex items-center">

@@ -9,7 +9,7 @@ export default function Button({ href, children, ...props }: ButtonProps) {
     return (
       <a
         href={href}
-        className=" p-3 my-5 mx-auto block min-w-[150px] w-fit  text-center border border-gray-400 shadow-sm shadow-blue-400 rounded-lg cursor-pointer bg-blue-400/80 hover:bg-blue-400 transition-colors duration-200"
+        className=" p-3 my-5 mx-auto block min-w-[150px] w-fit  text-center border border-gray-400 shadow-sm shadow-blue-400 rounded-lg cursor-pointer bg-blue-700 hover:bg-blue-600 transition-colors duration-200"
       >
         {children}
       </a>
@@ -18,7 +18,7 @@ export default function Button({ href, children, ...props }: ButtonProps) {
   return (
     <button
       {...props}
-      className=" p-3 my-5 w-full border border-gray-400 shadow-sm shadow-blue-400 rounded-lg cursor-pointer bg-blue-400/80 hover:bg-blue-400 transition-colors duration-200"
+      className=" p-3 my-5 w-full border border-gray-400 shadow-sm shadow-blue-400 rounded-lg cursor-pointer bg-blue-700 hover:bg-blue-600 transition-colors duration-200"
     >
       {children}
     </button>
