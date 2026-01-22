@@ -11,6 +11,8 @@ import {
   Row,
   Column,
 } from "@react-email/components";
+import { ContactFormData } from "../ContactForm/ContactForm";
+import { CSSProperties } from "react";
 
 export default function ContactEmail({
   firstname,
@@ -20,7 +22,7 @@ export default function ContactEmail({
   prefersPhone,
   prefersEmail,
   message,
-}) {
+} : ContactFormData) {
   return (
     <Html>
       <Head />
@@ -134,7 +136,7 @@ export default function ContactEmail({
 }
 
 // Styles inline (obligatoire pour les emails)
-const styles = {
+const styles: Record<string, CSSProperties> = {
   body: {
     fontFamily:
       '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
@@ -153,7 +155,8 @@ const styles = {
   header: {
     background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
     padding: "40px 30px",
-    textAlign: "center",
+    textAlign: "center"
+    ,
   },
   headerTitle: {
     color: "#ffffff",

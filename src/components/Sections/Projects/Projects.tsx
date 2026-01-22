@@ -126,6 +126,7 @@ export default function Projects() {
         ))}
       </div>
       <div className="text-center mt-15">
+        {/* eslint-disable-next-line */}
         <p className="mb-4">Envie d'un site qui vous ressemble?</p>
         <Button href="#contact">Discutons-en</Button>
       </div>

@@ -1,4 +1,10 @@
-export default function Label({ children, htmlFor, value }) {
+interface LabelProps {
+  children: React.ReactNode;
+  htmlFor: string;
+  value?: string;
+}
+
+export default function Label({ children, htmlFor, value }: LabelProps) {
   return (
     <label
       htmlFor={htmlFor}

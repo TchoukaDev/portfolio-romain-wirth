@@ -3,7 +3,16 @@ import { motion } from "framer-motion";
 import { FaGithub, FaLinkedin, FaBars, FaTimes } from "react-icons/fa";
 import { AnimatePresence } from "framer-motion";
 
-export default function NavbarMobile({ links, active, scrollToClickedSection, isOpen, setIsOpen, menuRef }) {
+interface NavbarMobileProps {
+  links: {id: string; name: string}[];
+  active: string | null;
+  scrollToClickedSection: (id: string) => void;
+  isOpen: boolean;
+  setIsOpen: (isOpen: boolean) => void;
+  menuRef: React.RefObject<HTMLUListElement | null>;
+}
+
+export default function NavbarMobile({ links, active, scrollToClickedSection, isOpen, setIsOpen, menuRef }: NavbarMobileProps) {
   return (
           <motion.div
             initial={{ opacity: 0, y: -10 }}

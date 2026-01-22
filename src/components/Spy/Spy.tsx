@@ -1,7 +1,10 @@
 "use client";
 import { useEffect } from "react";
 
-export default function Spy({ onActiveChange }) {
+interface SpyProps {
+  onActiveChange: (id: string) => void;
+}
+export default function Spy({ onActiveChange }: SpyProps) {
   useEffect(() => {
     //Sélectionner les sections à observer
     const spies = document.querySelectorAll(".spy");

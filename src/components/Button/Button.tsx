@@ -1,4 +1,10 @@
-export default function Button({ href, children, ...props }) {
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  href?: string;
+  children: React.ReactNode;
+
+}
+
+export default function Button({ href, children, ...props }: ButtonProps) {
   if (href) {
     return (
       <a

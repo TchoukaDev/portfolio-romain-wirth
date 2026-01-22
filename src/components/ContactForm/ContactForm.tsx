@@ -3,21 +3,35 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { sendMailSchema } from "@/libs/zod-schemas";
-import { startTransition, useActionState, useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 import { ClipLoader } from "react-spinners";
 import Label from "../Label/Label";
 import { sendMail } from "@/actions/sendMail";
 import Button from "../Button/Button";
+import { SendMailResponse } from "@/actions/sendMail";
+import { ContactFormData } from "@/libs/zod-schemas";
+
+// export interface ContactFormData{
+//   name: string;
+//   firstname: string;
+//   email: string;
+//   telephone?: string;
+//   message: string;
+//   prefersEmail?: boolean;
+//   prefersPhone?: boolean;
+//   wayToContact?: never;
+// }
+
+
 
 export default function ContactForm() {
   //State
   const [showForm, setShowForm] = useState(true);
-  // Hook pour server action
-  const [serverState, formAction, isPending] = useActionState(sendMail, null);
 
-  // Hooks pour redirection
-  const router = useRouter();
+  const [serverState, setServerState] = useState<SendMailResponse | null>(null);
+
+  const [isPending, setIsPending] = useState<boolean>(false);
+
 
   // React-Hook-Form + Resolver pour Zod
   const {
@@ -27,7 +41,7 @@ export default function ContactForm() {
     trigger,
     reset,
     formState: { errors: clientErrors, isSubmitting, isSubmitted },
-  } = useForm({
+  } = useForm<ContactFormData>({
     resolver: zodResolver(sendMailSchema),
     mode: "onSubmit",
     reValidateMode: "onChange",
@@ -41,15 +55,22 @@ export default function ContactForm() {
   const message = watch("message");
 
   // Envoi du formulaire au serveur
-  const onSubmit = (data) => {
+  const onSubmit = async (data: ContactFormData) => {
+    setIsPending(true);
     const formData = new FormData();
     Object.entries(data).forEach(([key, value]) => formData.append(key, value));
+    
+  const result = await sendMail(null, formData);
 
-    startTransition(() => {
-      formAction(formData);
+    setServerState({
+      success: result.success,
+      message: result.message,
+      fieldErrors: result.fieldErrors || {},
+      error: result.error || undefined,
     });
+    setIsPending(false);
   };
-
+    
   useEffect(() => {
     if (serverState?.success) {
       setShowForm(false);
@@ -66,6 +87,7 @@ export default function ContactForm() {
             type="button"
             onClick={() => {
               reset(); // vide les champs
+              setServerState(null);
               setShowForm(true); // réaffiche le formulaire
             }}
           >
@@ -85,6 +107,7 @@ export default function ContactForm() {
           className="max-w-2xl mx-auto flex flex-col gap-6 items-center"
         >
           <p className="text-center mb-10">
+            {/* eslint-disable-next-line */}
             Vous avez une question ou souhaitez travailler avec moi? N'hésitez
             pas à me contacter via ce formulaire, je vous répondrai au plus
             vite!

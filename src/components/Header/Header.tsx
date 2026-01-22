@@ -33,6 +33,7 @@ export default function Header() {
       <p
         className={`${styles.animatedSlogan} italic mt-6  text-blue-300 text-sm md:text-xl font-playfair`}
       >
+        {/* eslint-disable-next-line */}
         "Your vision. My code."
       </p>
     </header>

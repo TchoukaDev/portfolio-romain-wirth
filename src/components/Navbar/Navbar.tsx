@@ -1,8 +1,5 @@
 "use client";
 
-import { Mail } from "lucide-react";
-import { FaGithub, FaLinkedin, FaBars, FaTimes } from "react-icons/fa";
-import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import Spy from "../Spy/Spy";
 import { useMediaQuery } from "react-responsive";
@@ -11,9 +8,9 @@ import NavbarMobile from "./NavbarMobile";
 
 export default function Navbar() {
   // Variables
-  const [isOpen, setIsOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
-  const [active, setActive] = useState(null);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [mounted, setMounted] = useState<boolean>(false);
+  const [active, setActive] = useState<string | null>(null);
   const isLg = useMediaQuery({ query: "(min-width: 1024px)" });
 
   const links = [
@@ -27,13 +24,13 @@ export default function Navbar() {
   ];
 
   // Références
-  const menuRef = useRef();
+  const menuRef = useRef<HTMLUListElement | null>(null);
 
   // Functions
   // Fermeture du menu hamburger au clic extérieur
   useEffect(() => {
-    function handleClick(e) {
-      if (menuRef.current && !menuRef.current.contains(e.target)) {
+    function handleClick(e: MouseEvent) {
+      if (menuRef.current && !menuRef?.current?.contains(e.target as Node)) {
         setIsOpen(false);
       }
     }
@@ -46,7 +43,7 @@ export default function Navbar() {
     };
   });
 
-  const scrollToClickedSection = (id) => {
+  const scrollToClickedSection = (id: string) => {
     const section = document.getElementById(id);
     if (section) {
       const y = section.getBoundingClientRect().top + window.scrollY - 80; // 80px = hauteur navbar

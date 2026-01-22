@@ -2,8 +2,9 @@ import Footer from "@/components/Footer/Footer";
 import "./globals.css";
 import Header from "@/components/Header/Header";
 import Navbar from "@/components/Navbar/Navbar";
+import { Metadata } from "next";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: {
     default: "Romain WIRTH | Développeur Web",
     template: "%s | Portfolio de Romain WIRTH",
@@ -58,7 +59,7 @@ export const metadata = {
   },
 };
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="fr">
       <body className="bg-primary text-blue-50 relative font-raleway min-h-screen cursor-default">

@@ -1,7 +1,13 @@
 // Navbar Desktop
 import { motion } from "framer-motion";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
-export default function NavbarDesktop({ links, active, scrollToClickedSection }) {
+
+interface NavbarDesktopProps {
+  links: { id: string; name: string }[];
+  active: string | null;
+  scrollToClickedSection: (id: string) => void;
+}
+export default function NavbarDesktop({ links, active, scrollToClickedSection }: NavbarDesktopProps) {
   return (
           <motion.ul
             initial={{ opacity: 0, y: -10 }}

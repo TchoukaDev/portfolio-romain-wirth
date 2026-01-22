@@ -4,9 +4,16 @@ import { sendMailSchema } from "@/libs/zod-schemas";
 import { render } from "@react-email/render";
 import { Resend } from "resend";
 
+export interface SendMailResponse {
+  success: boolean;
+  message?: string;
+  fieldErrors?: Record<string, string>;
+  error?: string;
+}
+
 // Créer l'instance de resend
 const resend = new Resend(process.env.RESEND_API_KEY);
-export const sendMail = async (prevState, formData) => {
+export const sendMail = async (prevState: SendMailResponse | null, formData: FormData): Promise<SendMailResponse> => {
   const standardError = "Veuillez corriger les champs dans le formulaire";
 
   try {
@@ -34,11 +41,11 @@ export const sendMail = async (prevState, formData) => {
 
     // Formattage des erreur Zod
     if (validationResult.error) {
-      const fieldErrors = {};
+      const fieldErrors: Record<string, string> = {};
       validationResult.error.issues.forEach((issue) => {
         const fieldName = issue.path[0];
         const errorMessage = issue.message;
-        fieldErrors[fieldName] = errorMessage;
+        fieldErrors[typeof fieldName === 'string' ? fieldName : ''] = errorMessage;
       });
 
       return {
