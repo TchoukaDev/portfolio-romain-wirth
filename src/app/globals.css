@@ -45,8 +45,9 @@
 }
 
 @layer components {
+
   .card {
-    @apply bg-secondary px-5 py-5 sm:px-10 md:px-20 sm:py-10  w-full rounded-xl text-xs sm:text-sm md:text-base shadow-lg shadow-blue-900/40 opacity-0 transition-all;
+    @apply bg-secondary px-5 py-5 sm:px-10 md:px-20 sm:py-10  w-full rounded-xl text-sm md:text-base shadow-lg shadow-blue-900/40 opacity-0 transition-all;
 
     backface-visibility: hidden;
     transform: translateZ(0); /* force le GPU mais garde la netteté */
@@ -64,7 +65,7 @@
     @apply text-shadow-xs text-shadow-blue-400 my-1 text-center;
   }
   .input {
-    @apply w-full max-w-full md:w-[450px] border text-primary font-semibold border-gray-400 rounded px-4 pt-7 pb-2 bg-gray-100 text-sm placeholder-transparent outline-none focus:border-2 focus:border-blue-500 shadow-sm shadow-blue-400;
+    @apply w-full max-w-full sm:w-[450px] border text-primary font-semibold border-gray-400 rounded px-4 pt-5 md:pt-7 pb-2 bg-gray-100 text-sm  placeholder-transparent focus:outline-none focus:ring-3 focus:ring-blue-500  shadow-sm shadow-blue-400;
   }
 
   h2 {

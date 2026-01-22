@@ -41,7 +41,7 @@ export default function About() {
           Un interlocuteur unique, disponible et à l'écoute, pour un site qui
           vous ressemble et qui travaille pour vous.
           </p>
-      <Button href="#projects">Voir mes réalisations</Button>
+      <Button aria-label="Voir mes réalisations" href="#projects">Voir mes réalisations</Button>
     </section>
   );
 }

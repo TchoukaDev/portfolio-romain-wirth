@@ -11,18 +11,6 @@ import Button from "../Button/Button";
 import { SendMailResponse } from "@/actions/sendMail";
 import { ContactFormData } from "@/libs/zod-schemas";
 
-// export interface ContactFormData{
-//   name: string;
-//   firstname: string;
-//   email: string;
-//   telephone?: string;
-//   message: string;
-//   prefersEmail?: boolean;
-//   prefersPhone?: boolean;
-//   wayToContact?: never;
-// }
-
-
 
 export default function ContactForm() {
   //State
@@ -71,6 +59,17 @@ export default function ContactForm() {
     setIsPending(false);
   };
     
+// Dans le useEffect ou après validation échouée :
+useEffect(() => {
+  if (isSubmitted && Object.keys(clientErrors).length > 0) {
+    // Focus sur le premier champ en erreur
+    const firstErrorField = Object.keys(clientErrors)[0];
+    const element = document.getElementById(firstErrorField);
+    element?.focus();
+  }
+}, [clientErrors, isSubmitted]);
+
+
   useEffect(() => {
     if (serverState?.success) {
       setShowForm(false);
@@ -84,6 +83,7 @@ export default function ContactForm() {
         <p className="formSuccess mb-6">{serverState.message}</p>
         <div className="block mx-auto w-fit">
           <Button
+            aria-label="Nouveau message"
             type="button"
             onClick={() => {
               reset(); // vide les champs
@@ -122,19 +122,22 @@ export default function ContactForm() {
                 {...register("name")}
                 placeholder=""
                 autoComplete="family-name"
+                aria-required="true"
+                aria-invalid={clientErrors.name ? "true" : "false"}
+                aria-errormessage={clientErrors.name ? "name-error" : undefined}
                 className="input peer"
               />
-              <Label htmlFor={"name"} value={name}>
+              <Label htmlFor="name"  value={name}>
                 Nom*
               </Label>
 
               {/* Erreur côté client */}
               {clientErrors.name && (
-                <p className="formError">{clientErrors.name.message}</p>
+                <p id="name-error" className="formError" role="alert">{clientErrors.name.message}</p>
               )}
               {/* Erreur côté serveur */}
               {serverState?.fieldErrors?.name && !clientErrors.name && (
-                <p className="formError">{serverState.fieldErrors.name}</p>
+                <p id="name-error" className="formError" role="alert">{serverState.fieldErrors.name}</p>
               )}
             </div>
             {/* Prénom */}{" "}
@@ -145,7 +148,10 @@ export default function ContactForm() {
                 {...register("firstname")}
                 placeholder=""
                 autoComplete="given-name"
+                aria-required="true"
                 className="input peer"
+                aria-invalid={clientErrors.firstname ? "true" : "false"}
+                aria-errormessage={clientErrors.firstname ? "firstname-error" : undefined}
               />
               <Label htmlFor={"firstname"} value={firstname}>
                 Prénom*
@@ -153,12 +159,12 @@ export default function ContactForm() {
 
               {/* Erreur côté client */}
               {clientErrors.firstname && (
-                <p className="formError">{clientErrors.firstname.message}</p>
+                <p id="firstname-error" className="formError" role="alert">{clientErrors.firstname.message}</p>
               )}
               {/* Erreur côté serveur */}
               {serverState?.fieldErrors?.firstname &&
                 !clientErrors.firstname && (
-                  <p className="formError">
+                  <p id="firstname-error" className="formError" role="alert">
                     {serverState.fieldErrors.firstname}
                   </p>
                 )}
@@ -172,7 +178,10 @@ export default function ContactForm() {
                   {...register("email")}
                   placeholder=""
                   autoComplete="email"
+                  aria-required="true"
                   className="input peer"
+                  aria-invalid={clientErrors.email ? "true" : "false"}
+                  aria-errormessage={clientErrors.email ? "email-error" : undefined}
                 />
                 <Label htmlFor={"email"} value={email}>
                   Email*
@@ -180,11 +189,11 @@ export default function ContactForm() {
               </div>
               {/* Erreur côté client */}
               {clientErrors.email && (
-                <p className="formError">{clientErrors.email.message}</p>
+                <p id="email-error" className="formError" role="alert">{clientErrors.email.message}</p>
               )}
               {/* Erreur côté serveur */}
               {serverState?.fieldErrors?.email && !clientErrors.email && (
-                <p className="formError">{serverState.fieldErrors.email}</p>
+                <p id="email-error" className="formError" role="alert">{serverState.fieldErrors.email}</p>
               )}
             </div>
             {/* Téléphone */}
@@ -196,6 +205,8 @@ export default function ContactForm() {
                 placeholder=""
                 autoComplete="tel"
                 className="input peer"
+                aria-invalid={clientErrors.telephone ? "true" : "false"}
+                aria-errormessage={clientErrors.telephone ? "telephone-error" : undefined}
               />
               <Label htmlFor={"telephone"} value={telephone}>
                 Téléphone
@@ -203,12 +214,12 @@ export default function ContactForm() {
 
               {/* Erreur côté client */}
               {clientErrors.telephone && (
-                <p className="formError">{clientErrors.telephone.message}</p>
+                <p id="telephone-error" className="formError" role="alert">{clientErrors.telephone.message}</p>
               )}
               {/* Erreur côté serveur */}
               {serverState?.fieldErrors?.telephone &&
                 !clientErrors.telephone && (
-                  <p className="formError">
+                  <p id="telephone-error" className="formError" role="alert">
                     {serverState.fieldErrors.telephone}
                   </p>
                 )}
@@ -216,8 +227,11 @@ export default function ContactForm() {
           </div>
           {/* Choix du mode de contact */}
           <div className="text-center mt-5 mb-2">
+        
+            <fieldset aria-required="true" aria-invalid={clientErrors.wayToContact ? "true" : "false"} aria-errormessage={clientErrors.wayToContact ? "wayToContact-error" : undefined} aria-live="polite" aria-atomic="true">
+          
             <p className="mb-3">
-              Par quel moyen préférez-vous être recontacté?*
+              <legend>Par quel moyen préférez-vous être recontacté?*</legend>
             </p>
             <div className="flex justify-center text-center items-center gap-10 mb-3">
               <div className="flex items-center">
@@ -249,6 +263,7 @@ export default function ContactForm() {
                 </label>
                 <input
                   type="checkbox"
+                
                   {...register("prefersPhone", {
                     onChange: () => {
                       // ✅ Trigger seulement si déjà soumis
@@ -262,16 +277,17 @@ export default function ContactForm() {
                 />
               </div>
             </div>
+          
             {clientErrors?.wayToContact && (
-              <p className="formError">{clientErrors.wayToContact.message}</p>
-            )}
-            {serverState?.fieldErrors?.wayToContact &&
-              !clientErrors.wayToContact && (
-                <p className="formError">
-                  {serverState.fieldErrors.wayToContact}
-                </p>
+               <p id="wayToContact-error" className="formError" role="alert">{clientErrors.wayToContact.message}</p>
               )}
-          </div>
+              {serverState?.fieldErrors?.wayToContact &&
+                !clientErrors.wayToContact && (
+                 <p id="wayToContact-error" className="formError" role="alert">
+                    {serverState.fieldErrors.wayToContact}
+                  </p>
+                )}
+           </fieldset> </div>
           {/* Message */}
           <div className="w-full max-w-[700px] md:w-fit relative">
             <textarea
@@ -281,22 +297,25 @@ export default function ContactForm() {
               id="message"
               {...register("message")}
               placeholder=""
+              aria-required="true"
+              aria-invalid={clientErrors.message ? "true" : "false"}
+              aria-errormessage={clientErrors.message ? "message-error" : undefined}
             />
             <Label htmlFor={message} value={message}>
               Votre message*
             </Label>
             {/* Erreur client */}
             {clientErrors?.message && (
-              <p className="formError">{clientErrors.message.message}</p>
+              <p id="message-error" className="formError" role="alert">{clientErrors.message.message}</p>
             )}
             {/* Erreur serveur */}
             {serverState?.fieldErrors?.message && !clientErrors.message && (
-              <p className="formError">{serverState?.fieldErrors.message}</p>
+              <p id="message-error" className="formError" role="alert">{serverState?.fieldErrors.message}</p>
             )}
           </div>
           {/* Bouton d'envoi */}{" "}
           <div className="block w-[150px] mx-auto">
-            <Button disabled={isSubmitting || isSubmitting} type="submit">
+            <Button disabled={isSubmitting || isSubmitting} type="submit" aria-label="Envoyer le message">
               {isSubmitting || isPending ? (
                 <span className="flex items-center text-sand justify-center gap-2">
                   Envoi en cours... <ClipLoader size={20} color="#f3f4f6" />
@@ -308,7 +327,7 @@ export default function ContactForm() {
           </div>
           {/* Erreur serveur générale */}
           {serverState?.error && !serverState?.fieldErrors && (
-            <div className="formError">{serverState.error}</div>
+            <div className="formError" aria-live="polite">{serverState.error}</div>
           )}
         </form>
       </>

@@ -13,7 +13,7 @@ export default function Testimonials() {
   return (
     <section id="testimonials" className="card spy">
       <h2>Témoignages</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2  gap-8 lg:gap-10">
+      <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3  gap-8 lg:gap-10">
         {testimonials.map((testimonial) => (
           <div
             key={testimonial.id}

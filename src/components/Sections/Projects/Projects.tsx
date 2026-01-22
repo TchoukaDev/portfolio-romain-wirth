@@ -17,6 +17,7 @@ export default function Projects() {
         "Site vitrine clair et apaisant pour présenter son activité de psychologue et permettre la prise de contact.",
       url: "https://clothilde-baudet.fr/",
       techno: <SiWordpress />,
+      technoName: "WordPress",
       category: "vitrine",
     },
     {
@@ -26,6 +27,7 @@ export default function Projects() {
         "Site vitrine avec boutique en ligne : catalogue produits, panier, paiement.",
       url: "https://flowerpower.romainwirth.fr/",
       techno: <SiWordpress />,
+      technoName: "WordPress",
       category: "vitrine",
     },
     {
@@ -40,6 +42,7 @@ export default function Projects() {
           <SiStrapi />
         </>
       ),
+      technoName: "Next.js et Strapi",
       category: "sur-mesure",
     },
     {
@@ -54,6 +57,7 @@ export default function Projects() {
           <SiFirebase />
         </>
       ),
+      technoName: "React et Firebase",
       category: "sur-mesure",
     },
     {
@@ -68,6 +72,7 @@ export default function Projects() {
           <SiMongodb />
         </>
       ),
+      technoName: "Next.js et MongoDB",
       category: "sur-mesure",
     },
   ];
@@ -82,6 +87,7 @@ export default function Projects() {
         <select
           value={filter}
           onChange={(e) => setFilter(e.target.value)}
+          aria-label="Filtrer les projets par catégorie"
           className="px-4 py-2 bg-primary border border-blue-50 rounded-lg text-sm font-medium transition-all cursor-pointer hover:border-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent"
         >
           <option value="all">Tous les projets</option>
@@ -95,7 +101,8 @@ export default function Projects() {
             target="_blank"
             rel="noreferrer"
             href={p.url}
-            className="group py-5 px-4 sm:px-8 bg-primary flex flex-col items-center justify-evenly space-y-5 border border-blue-50 rounded-lg hover:scale-103 transition-all shadow-md hover:shadow-lg shadow-blue-400"
+            aria-label={`Accéder au projet ${p.title}`}
+            className="group py-5 px-4 sm:px-8 bg-primary flex flex-col items-center justify-evenly space-y-5 border border-blue-50 rounded-lg hover:scale-103 transition-all shadow-md hover:shadow-lg shadow-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-secondary"
             key={p.url}
           >
             <h3 className="text-center">{p.title}</h3>
@@ -103,7 +110,7 @@ export default function Projects() {
             <div className="w-full max-w-[350px] relative aspect-[7/4]">
   <Image
     src={p.imageSrc}
-    alt={`projet ${i + 1}`}
+    alt={`Aperçu du projet ${p.title}`}
     fill
     className="object-contain rounded"
     sizes="(max-width: 1024px) 100vw, 50vw"
@@ -115,8 +122,9 @@ export default function Projects() {
               {p.description}
             </p>
 
-            <div className="flex gap-3 justify-center text-xl opacity-60 transition-opacity group-hover:opacity-100">
+            <div className="flex gap-3 justify-center text-xl opacity-60 transition-opacity group-hover:opacity-100" aria-label={`Technologies utilisées : ${p.technoName}`}>
               {p.techno}
+              <span className="sr-only">{p.technoName}</span>
             </div>
 
             <div className="text-xs transition-colors self-center group-hover:underline group-hover:text-blue-400">
@@ -128,7 +136,7 @@ export default function Projects() {
       <div className="text-center mt-15">
         {/* eslint-disable-next-line */}
         <p className="mb-4">Envie d'un site qui vous ressemble?</p>
-        <Button href="#contact">Discutons-en</Button>
+        <Button aria-label="Discutons-en" href="#contact">Discutons-en</Button>
       </div>
     </section>
   );

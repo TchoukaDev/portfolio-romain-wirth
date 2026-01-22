@@ -63,7 +63,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="fr">
       <body className="bg-primary text-blue-50 relative font-raleway min-h-screen cursor-default">
-        <Navbar />
+           <Navbar />
         <Header />
         {children}
         <Footer />

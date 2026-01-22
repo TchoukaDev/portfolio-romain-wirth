@@ -10,7 +10,7 @@ export default function Advanced() {
         interne, tableau de bord... Je réalise aussi des applications
         sur-mesure.
       </p>
-      <Button href="#contact">Parlons-en</Button>
+      <Button aria-label="Parlons-en" href="#contact">Parlons-en</Button>
     </section>
   );
 }

@@ -9,7 +9,7 @@ import Testimonials from "@/components/Sections/Testimonials/Testimonials";
 
 export default function Home() {
   return (
-    <main>
+    <main id="main-content">
       {/* Observer pour l'animation des cartes */}
       <CardObserver />
 

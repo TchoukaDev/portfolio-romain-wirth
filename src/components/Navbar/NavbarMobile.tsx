@@ -49,7 +49,7 @@ export default function NavbarMobile({ links, active, scrollToClickedSection, is
                         <button
                           role="menuitem"
                           aria-label={`Aller à la section ${link.name}`}
-                          className={`cursor-pointer text-center hover:text-blue-400 transition-colors duration-300 font-medium ${
+                          className={`cursor-pointer text-center hover:text-blue-400 transition-colors duration-300 font-medium focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-[#0a0f1f] rounded px-2 py-1 ${
                             active === link.id
                               ? "text-blue-300 underline underline-offset-4"
                               : ""
@@ -67,19 +67,27 @@ export default function NavbarMobile({ links, active, scrollToClickedSection, is
              
               <li>
                 <a
-                  aria-label="Se rendre sur le GitHub de Romain WIRTH (TchoukaDev)"
+                  aria-label="Se rendre sur le GitHub de Romain WIRTH"
                   href="https://github.com/TchoukaDev"
                   target="_blank"
                   rel="noreferrer"
+                  className="focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-secondary rounded inline-block"
                 >
                   <FaGithub className="w-5 h-5 cursor-pointer hover:text-blue-400 transition-colors duration-300" />
                 </a>
               </li>
             
-                <li>
-              <a href="https://www.linkedin.com/in/romain-wirth-414816196/" target="_blank" rel="noreferrer" aria-label="Se rendre sur le LinkedIn de Romain WIRTH">
-              <FaLinkedin className="w-5 h-5 cursor-pointer hover:text-blue-400 transition-colors duration-300" /></a>
-            </li>
+              <li>
+                <a 
+                  href="https://www.linkedin.com/in/romain-wirth-414816196/" 
+                  target="_blank" 
+                  rel="noreferrer" 
+                  aria-label="Se rendre sur le LinkedIn de Romain WIRTH"
+                  className="focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-secondary rounded inline-block"
+                >
+                  <FaLinkedin className="w-5 h-5 cursor-pointer hover:text-blue-400 transition-colors duration-300" />
+                </a>
+              </li>
             
             </ul>
           </motion.div>)}
