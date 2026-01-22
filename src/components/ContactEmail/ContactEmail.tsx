@@ -11,7 +11,7 @@ import {
   Row,
   Column,
 } from "@react-email/components";
-import { ContactFormData } from "../ContactForm/ContactForm";
+import { ContactFormData } from "@/libs/zod-schemas";
 import { CSSProperties } from "react";
 
 export default function ContactEmail({
