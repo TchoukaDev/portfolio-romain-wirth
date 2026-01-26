@@ -19,6 +19,11 @@ const eslintConfig = [
       "build/**",
       "next-env.d.ts",
     ],
+    rules: {
+      "no-unescaped-entities": "off",
+      "react/no-unescaped-entities": "off",
+      "@next/next/no-unescaped-entities": "off",
+    },
   },
 ];
 

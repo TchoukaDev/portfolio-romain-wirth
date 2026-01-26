@@ -5,12 +5,25 @@ import Image from "next/image";
 import { useState } from "react";
 import { SiFirebase, SiMongodb, SiStrapi, SiWordpress } from "react-icons/si";
 import { SiNextdotjs, SiReact } from "react-icons/si";
+import Carousel from "./Carousel";
+
+export type Project = {
+  id: number;
+  title: string;
+  imageSrc: string;
+  description: string;
+  url: string;
+  techno: React.ReactNode;
+  technoName: string;
+  category: string;
+}
 
 export default function Projects() {
   const [filter, setFilter] = useState("all");
 
-  const projects = [
+  const projects: Project[] = [
     {
+      id: 1,
       title: "Clothilde Baudet - Psychologue",
       imageSrc: "/projects/clothilde-baudet.png",
       description:
@@ -21,6 +34,7 @@ export default function Projects() {
       category: "vitrine",
     },
     {
+      id: 2,
       title: "FlowerPower - Boutique de fleurs",
       imageSrc: "/projects/flowerpower.png",
       description:
@@ -31,6 +45,7 @@ export default function Projects() {
       category: "vitrine",
     },
     {
+      id: 3,
       title: "Marche aquatique - Les randonneurs des sables",
       imageSrc: "/projects/lesrandonneurs.png",
       description:
@@ -46,6 +61,7 @@ export default function Projects() {
       category: "sur-mesure",
     },
     {
+      id: 4,
       title: "Waves - MVP Réseau social",
       imageSrc: "/projects/waves.png",
       description:
@@ -61,6 +77,7 @@ export default function Projects() {
       category: "sur-mesure",
     },
     {
+      id: 5,
       title: "Fitbuilder",
       imageSrc: "/projects/fitbuilder.png",
       description:
@@ -80,6 +97,7 @@ export default function Projects() {
   const filteredProjects =
     filter === "all" ? projects : projects.filter((p) => p.category === filter);
 
+
   return (
     <section className="card spy" id="projects">
       <h2>Réalisations</h2>
@@ -95,44 +113,8 @@ export default function Projects() {
           <option value="sur-mesure">Applications sur-mesure</option>
         </select>
       </div>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-15">
-        {filteredProjects.map((p, i) => (
-          <a
-            target="_blank"
-            rel="noreferrer"
-            href={p.url}
-            aria-label={`Accéder au projet ${p.title}`}
-            className="group py-5 px-4 sm:px-8 bg-primary flex flex-col items-center justify-evenly space-y-5 border border-blue-50 rounded-lg hover:scale-103 transition-all shadow-md hover:shadow-lg shadow-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-secondary"
-            key={p.url}
-          >
-            <h3 className="text-center">{p.title}</h3>
+      <Carousel filteredProjects={filteredProjects} />
 
-            <div className="w-full max-w-[350px] relative aspect-[7/4]">
-  <Image
-    src={p.imageSrc}
-    alt={`Aperçu du projet ${p.title}`}
-    fill
-    className="object-contain rounded"
-    sizes="(max-width: 1024px) 100vw, 50vw"
-  />
-</div>
-
-
-            <p className="text-xs sm:text-sm text-center w-full max-w-[350px] leading-relaxed">
-              {p.description}
-            </p>
-
-            <div className="flex gap-3 justify-center text-xl opacity-60 transition-opacity group-hover:opacity-100" aria-label={`Technologies utilisées : ${p.technoName}`}>
-              {p.techno}
-              <span className="sr-only">{p.technoName}</span>
-            </div>
-
-            <div className="text-xs transition-colors self-center group-hover:underline group-hover:text-blue-400">
-              Cliquer pour accéder
-            </div>
-          </a>
-        ))}
-      </div>
       <div className="text-center mt-15">
         {/* eslint-disable-next-line */}
         <p className="mb-4">Envie d'un site qui vous ressemble?</p>
