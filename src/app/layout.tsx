@@ -4,6 +4,7 @@ import Header from "@/components/Header/Header";
 import Navbar from "@/components/Navbar/Navbar";
 import localFont from "next/font/local";
 import { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
 
 const raleway = localFont({
   src: [
@@ -97,10 +98,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="fr" className={`${raleway.variable} ${playfair.variable}`}>
       <body className="bg-primary text-blue-50 relative font-raleway min-h-screen cursor-default">
+
         <Navbar />
         <Header />
         {children}
         <Footer />
+        <Analytics />
       </body>
     </html>
   );
