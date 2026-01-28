@@ -86,7 +86,7 @@ input[data-autocompleted] {
 }
 
 .animatedRole {
-  opacity: 0.8;
+  opacity: 0;
   animation: 0.6s ease-out 0.5s forwards fadeInRole;
 }
 
@@ -98,7 +98,7 @@ input[data-autocompleted] {
 
 /* Classe pour ton slogan */
 .animatedSlogan {
-  opacity: 0.8;
+  opacity: 0;
   transform: translateX(-100px);
   animation: slideIn 1s cubic-bezier(0.22, 1, 0.8, 1) 0.8s forwards;
 }

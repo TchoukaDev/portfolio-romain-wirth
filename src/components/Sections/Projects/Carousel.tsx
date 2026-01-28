@@ -2,7 +2,18 @@ import { useState, useEffect } from "react";
 import { Project } from "./Projects";
 import Image from "next/image";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
-import { AnimatePresence, motion } from "framer-motion";
+import dynamic from "next/dynamic";
+
+// Lazy load les composants animés
+const MotionDiv = dynamic(
+  () => import("framer-motion").then((mod) => mod.motion.div),
+  { ssr: false }
+);
+
+const AnimatePresence = dynamic(
+  () => import("framer-motion").then((mod) => mod.AnimatePresence),
+  { ssr: false }
+);
 
 export default function Carousel({ filteredProjects }: { filteredProjects: Project[] }) {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -91,7 +102,7 @@ export default function Carousel({ filteredProjects }: { filteredProjects: Proje
       {/* Carrousel */}
 
       <AnimatePresence mode="wait" custom={direction}>
-        <motion.div
+        <MotionDiv
           key={currentIndex}
           custom={direction}
           initial="enter"
@@ -147,7 +158,7 @@ export default function Carousel({ filteredProjects }: { filteredProjects: Proje
               </div>
             </a>
           ))}
-        </motion.div>
+        </MotionDiv>
       </AnimatePresence>
 
 
