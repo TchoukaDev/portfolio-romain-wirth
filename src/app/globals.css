@@ -73,19 +73,6 @@ input[data-autocompleted] {
   background-color: transparent !important;
 }
 
-.animatedName {
-  opacity: 0.8;
-  transform: translateY(-40px);
-  animation: 0.6s ease-out forwards fadeInName;
-  /* forwards pour garder la fin */
-}
-
-@keyframes fadeInName {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 
 .animatedLine {
   transform: scaleX(0);

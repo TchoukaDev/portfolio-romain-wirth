@@ -10,7 +10,7 @@ export default function Header() {
 
       {/* Nom */}
       <h1
-        className={`animatedName text-xl md:text-6xl font-bold tracking-wide text-white drop-shadow-lg transition-all`}
+        className={`text-xl md:text-6xl font-bold tracking-wide text-white drop-shadow-lg`}
       >
         <span className="text-blue-50">Romain</span>{" "}
         <span className="text-blue-400">WIRTH</span>
