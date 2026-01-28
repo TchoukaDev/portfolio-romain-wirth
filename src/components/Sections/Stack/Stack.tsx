@@ -26,19 +26,19 @@ export default function Stack() {
       category: "Front-end",
       tech: [
         {
-          icon: <DiHtml5 color="#E34F26" className={styles.icon} />,
+          icon: <DiHtml5 color="#E34F26" className="icon" />,
           name: "HTML5",
         },
         {
-          icon: <DiCss3 color="#1572B6" className={styles.icon} />,
+          icon: <DiCss3 color="#1572B6" className="icon" />,
           name: "CSS3",
         },
         {
-          icon: <SiJavascript color="#F7DF1E" className={styles.icon} />,
+          icon: <SiJavascript color="#F7DF1E" className="icon" />,
           name: "JavaScript",
         },
         {
-          icon: <DiSass color="#CC6699" className={styles.icon} />,
+          icon: <DiSass color="#CC6699" className="icon" />,
           name: "Sass",
         },
       ],
@@ -55,15 +55,15 @@ export default function Stack() {
         //   name: "MySQL",
         // },
         {
-          icon: <SiMongodb color="#00ed64" className={styles.icon} />,
+          icon: <SiMongodb color="#00ed64" className="icon" />,
           name: "MongoDB",
         },
         {
-          icon: <SiFirebase color="#FFCA28" className={styles.icon} />,
+          icon: <SiFirebase color="#FFCA28" className="icon" />,
           name: "Firebase",
         },
         {
-          icon: <SiStrapi className={styles.icon} />,
+          icon: <SiStrapi className="icon" />,
           name: "Strapi",
         },
       ],
@@ -72,19 +72,19 @@ export default function Stack() {
       category: "Frameworks & Bibliothèques",
       tech: [
         {
-          icon: <DiReact color="#61DAFB" className={styles.icon} />,
+          icon: <DiReact color="#61DAFB" className="icon" />,
           name: "React",
         },
         {
-          icon: <SiNextdotjs color="#e5e5e5" className={styles.icon} />,
+          icon: <SiNextdotjs color="#e5e5e5" className="icon" />,
           name: "Next.js",
         },
         {
-          icon: <DiBootstrap color="#7952B3" className={styles.icon} />,
+          icon: <DiBootstrap color="#7952B3" className="icon" />,
           name: "Bootstrap",
         },
         {
-          icon: <SiTailwindcss color="#06B6D4" className={styles.icon} />,
+          icon: <SiTailwindcss color="#06B6D4" className="icon" />,
           name: "TailwindCSS",
         },
       ],
@@ -94,15 +94,15 @@ export default function Stack() {
       category: "CMS & Outils",
       tech: [
         {
-          icon: <FaWordpress className={styles.icon} />,
+          icon: <FaWordpress className="icon" />,
           name: "WordPress",
         },
         {
-          icon: <DiGit color="#F05032" className={styles.icon} />,
+          icon: <DiGit color="#F05032" className="icon" />,
           name: "Git",
         },
         {
-          icon: <SiGithub className={styles.iconSmall} />,
+          icon: <SiGithub className="icon" />,
           name: "Github",
         },
       ],

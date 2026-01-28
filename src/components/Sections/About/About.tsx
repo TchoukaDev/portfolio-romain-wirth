@@ -7,40 +7,40 @@ export default function About() {
       <h2>A propos</h2>
       <p className="text-center font-semibold mb-10">
         {/* eslint-disable-next-line */}
-          Démarrage d'activité le 11 mars 2026 — mais vous pouvez d'ores et déjà me contacter.
-        </p>
+        Démarrage d'activité le 11 mars 2026 — mais vous pouvez d'ores et déjà me contacter.
+      </p>
       <div className="flex flex-col xl:flex-row justify-center lg:justify-evenly items-center gap-8 lg:gap-10 xl:gap-15">
-        
-      <div className="space-y-5 text-center xl:text-left ">
 
-        <p>
-          Je suis Romain Wirth, développeur web freelance en reconversion
-          professionnelle.
-        </p>{" "}
+        <div className="space-y-5 text-center xl:text-left ">
+
+          <p>
+            Je suis Romain Wirth, développeur web freelance en reconversion
+            professionnelle.
+          </p>{" "}
           <p>
             {/* eslint-disable-next-line */}
-          J'accompagne les artisans, indépendants et petites entreprises qui veulent un site à leur image : clair, professionnel et facile à faire
+            J'accompagne les artisans, indépendants et petites entreprises qui veulent un site à leur image : clair, professionnel et facile à faire
             vivre au quotidien. </p>
           {/* eslint-disable-next-line */}
           <p>J'aide également les associations à développer
-          leur présence en ligne.
-        </p>{" "}
-        <p>
-          {/* eslint-disable-next-line */}
-          Que ce soit pour créer votre premier site, moderniser un site existant ou y ajouter des fonctionnalités pratiques, je m'adapte à vos besoins
-          et vous explique tout, simplement.
-        </p>
-       </div>
-       <div className="relative lg:size-64 md:size-52 size-40 shrink-0 shadow-2xl shadow-blue-500/50 rounded-full">
-          <Image src="/assets/images/photopro_blue.png" alt="Romain Wirth" fill className="rounded-full shrink-0 aspect-square object-cover"  sizes="(min-width: 1024px) 256px, (min-width: 768px) 208px, 160px" priority />
-         
-        </div>
-      
-      </div>
-       <p className="font-bold text-center my-10">{/* eslint-disable-next-line */}
-          Un interlocuteur unique, disponible et à l'écoute, pour un site qui
-          vous ressemble et qui travaille pour vous.
+            leur présence en ligne.
+          </p>{" "}
+          <p>
+            {/* eslint-disable-next-line */}
+            Que ce soit pour créer votre premier site, moderniser un site existant ou y ajouter des fonctionnalités pratiques, je m'adapte à vos besoins
+            et vous explique tout, simplement.
           </p>
+        </div>
+        <div className="relative lg:size-64 md:size-52 size-40 shrink-0 shadow-2xl shadow-blue-500/50 rounded-full">
+          <Image src="/assets/images/photopro_blue.png" alt="Romain Wirth" fill className="rounded-full shrink-0 aspect-square object-cover" sizes="(min-width: 1024px) 256px, (min-width: 768px) 208px, 160px" priority fetchPriority="high" />
+
+        </div>
+
+      </div>
+      <p className="font-bold text-center my-10">{/* eslint-disable-next-line */}
+        Un interlocuteur unique, disponible et à l'écoute, pour un site qui
+        vous ressemble et qui travaille pour vous.
+      </p>
       <Button aria-label="Voir mes réalisations" href="#projects">Voir mes réalisations</Button>
     </section>
   );

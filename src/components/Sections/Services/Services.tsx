@@ -1,11 +1,10 @@
 import { Code2, HeartHandshake, RefreshCcw } from "lucide-react";
-import styles from "../Sections.module.css";
 
 export default function Services() {
   const services = [
     {
       title: "Création de site",
-      icon: <Code2 className={styles.icon} />,
+      icon: <Code2 className="icon" />,
       highlight: "Un site qui attire vos clients et reflète votre activité",
       description: [
         "Site vitrine ou petit commerce en ligne",
@@ -15,7 +14,7 @@ export default function Services() {
     },
     {
       title: "Refonte de site",
-      icon: <RefreshCcw className={styles.icon} />,
+      icon: <RefreshCcw className="icon" />,
       highlight: "Transformez votre site en un outil clair et efficace",
       description: [
         "Modernisation de votre site existant",
@@ -25,7 +24,7 @@ export default function Services() {
     },
     {
       title: "Accompagnement",
-      icon: <HeartHandshake className={styles.icon} />,
+      icon: <HeartHandshake className="icon" />,
       highlight: "Un suivi humain, du début à la fin.",
       description: [
         "Conseils adaptés à vos besoins",

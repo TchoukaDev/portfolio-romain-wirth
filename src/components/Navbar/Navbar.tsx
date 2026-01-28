@@ -1,17 +1,18 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Spy from "../Spy/Spy";
-import { useMediaQuery } from "react-responsive";
 import NavbarDesktop from "./NavbarDesktop";
 import NavbarMobile from "./NavbarMobile";
+import dynamic from "next/dynamic";
+
+const Spy = dynamic(() => import("../Spy/Spy"), { ssr: false });
 
 export default function Navbar() {
   // Variables
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [mounted, setMounted] = useState<boolean>(false);
   const [active, setActive] = useState<string | null>(null);
-  const isLg = useMediaQuery({ query: "(min-width: 1024px)" });
+
 
   const links = [
     { name: "À propos", id: "about" },
@@ -74,11 +75,12 @@ export default function Navbar() {
         aria-label="Barre de navigation principale"
         className="sticky top-0 z-50 px-6 py-3 bg-secondary  shadow-md md:shadow-lg shadow-blue-900/50 border-b border-blue-800/30"
       >
-        {isLg ? (
-         <NavbarDesktop links={links} active={active} scrollToClickedSection={scrollToClickedSection} />
-        ) : (
-         <NavbarMobile links={links} active={active} isOpen={isOpen} setIsOpen={setIsOpen} menuRef={menuRef} scrollToClickedSection={scrollToClickedSection} />
-        )}
+        <div className="hidden lg:block">
+          <NavbarDesktop links={links} active={active} scrollToClickedSection={scrollToClickedSection} />
+        </div>
+        <div className="block lg:hidden">
+          <NavbarMobile links={links} active={active} isOpen={isOpen} setIsOpen={setIsOpen} menuRef={menuRef} scrollToClickedSection={scrollToClickedSection} />
+        </div>
       </nav>
     </>
   );
