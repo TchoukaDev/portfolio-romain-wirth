@@ -47,8 +47,8 @@ export default function ContactForm() {
     setIsPending(true);
     const formData = new FormData();
     Object.entries(data).forEach(([key, value]) => formData.append(key, value));
-    
-  const result = await sendMail(null, formData);
+
+    const result = await sendMail(null, formData);
 
     setServerState({
       success: result.success,
@@ -58,16 +58,16 @@ export default function ContactForm() {
     });
     setIsPending(false);
   };
-    
-// Dans le useEffect ou après validation échouée :
-useEffect(() => {
-  if (isSubmitted && Object.keys(clientErrors).length > 0) {
-    // Focus sur le premier champ en erreur
-    const firstErrorField = Object.keys(clientErrors)[0];
-    const element = document.getElementById(firstErrorField);
-    element?.focus();
-  }
-}, [clientErrors, isSubmitted]);
+
+  // Dans le useEffect ou après validation échouée :
+  useEffect(() => {
+    if (isSubmitted && Object.keys(clientErrors).length > 0) {
+      // Focus sur le premier champ en erreur
+      const firstErrorField = Object.keys(clientErrors)[0];
+      const element = document.getElementById(firstErrorField);
+      element?.focus();
+    }
+  }, [clientErrors, isSubmitted]);
 
 
   useEffect(() => {
@@ -127,7 +127,7 @@ useEffect(() => {
                 aria-errormessage={clientErrors.name ? "name-error" : undefined}
                 className="input peer"
               />
-              <Label htmlFor="name"  value={name}>
+              <Label htmlFor="name" value={name}>
                 Nom*
               </Label>
 
@@ -227,67 +227,67 @@ useEffect(() => {
           </div>
           {/* Choix du mode de contact */}
           <div className="text-center mt-5 mb-2">
-        
-            <fieldset aria-required="true" aria-invalid={clientErrors.wayToContact ? "true" : "false"} aria-errormessage={clientErrors.wayToContact ? "wayToContact-error" : undefined} aria-live="polite" aria-atomic="true">
-          
-            <p className="mb-3">
-              <legend>Par quel moyen préférez-vous être recontacté?</legend>
-            </p>
-            <div className="flex justify-center text-center items-center gap-10 mb-3">
-              <div className="flex items-center">
-                <label
-                  htmlFor="prefersEmail"
-                  className="label inline-block align-middle mr-2"
-                >
-                  Email:
-                </label>
-                <input
-                  type="checkbox"
-                  {...register("prefersEmail", {
-                    onChange: () => {
-                      // ✅ Trigger seulement si déjà soumis
-                      if (isSubmitted) {
-                        trigger("wayToContact");
-                      }
-                    },
-                  })}
-                  id="prefersEmail"
-                />
+
+            <fieldset aria-required="true" aria-invalid={clientErrors.wayToContact ? "true" : "false"} aria-errormessage={clientErrors.wayToContact ? "wayToContact-error" : undefined} aria-live="polite" >
+
+              <p className="mb-3">
+                <legend>Par quel moyen préférez-vous être recontacté?</legend>
+              </p>
+              <div className="flex justify-center text-center items-center gap-10 mb-3">
+                <div className="flex items-center">
+                  <label
+                    htmlFor="prefersEmail"
+                    className="label inline-block align-middle mr-2"
+                  >
+                    Email:
+                  </label>
+                  <input
+                    type="checkbox"
+                    {...register("prefersEmail", {
+                      onChange: () => {
+                        // ✅ Trigger seulement si déjà soumis
+                        if (isSubmitted) {
+                          trigger("wayToContact");
+                        }
+                      },
+                    })}
+                    id="prefersEmail"
+                  />
+                </div>
+                <div className="flex items-center">
+                  <label
+                    htmlFor="prefersPhone"
+                    className="label inline-block align-middle mr-2"
+                  >
+                    Téléphone:
+                  </label>
+                  <input
+                    type="checkbox"
+
+                    {...register("prefersPhone", {
+                      onChange: () => {
+                        // ✅ Trigger seulement si déjà soumis
+                        if (isSubmitted) {
+                          trigger("wayToContact");
+                          trigger("telephone");
+                        }
+                      },
+                    })}
+                    id="prefersPhone"
+                  />
+                </div>
               </div>
-              <div className="flex items-center">
-                <label
-                  htmlFor="prefersPhone"
-                  className="label inline-block align-middle mr-2"
-                >
-                  Téléphone:
-                </label>
-                <input
-                  type="checkbox"
-                
-                  {...register("prefersPhone", {
-                    onChange: () => {
-                      // ✅ Trigger seulement si déjà soumis
-                      if (isSubmitted) {
-                        trigger("wayToContact");
-                        trigger("telephone");
-                      }
-                    },
-                  })}
-                  id="prefersPhone"
-                />
-              </div>
-            </div>
-          
-            {clientErrors?.wayToContact && (
-               <p id="wayToContact-error" className="formError" role="alert">{clientErrors.wayToContact.message}</p>
+
+              {clientErrors?.wayToContact && (
+                <p id="wayToContact-error" className="formError" role="alert">{clientErrors.wayToContact.message}</p>
               )}
               {serverState?.fieldErrors?.wayToContact &&
                 !clientErrors.wayToContact && (
-                 <p id="wayToContact-error" className="formError" role="alert">
+                  <p id="wayToContact-error" className="formError" role="alert">
                     {serverState.fieldErrors.wayToContact}
                   </p>
                 )}
-           </fieldset> </div>
+            </fieldset> </div>
           {/* Message */}
           <div className="w-full max-w-[700px] md:w-fit relative">
             <textarea
@@ -301,7 +301,7 @@ useEffect(() => {
               aria-invalid={clientErrors.message ? "true" : "false"}
               aria-errormessage={clientErrors.message ? "message-error" : undefined}
             />
-            <Label htmlFor={message} value={message}>
+            <Label htmlFor="message" value={message}>
               Votre message*
             </Label>
             {/* Erreur client */}

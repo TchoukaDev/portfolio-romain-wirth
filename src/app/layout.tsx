@@ -18,6 +18,7 @@ const raleway = localFont({
       style: "normal",
     },
   ],
+  display: "swap",
   variable: "--font-raleway",
 });
 
@@ -34,6 +35,7 @@ const playfair = localFont({
       style: "italic",
     },
   ],
+  display: "swap",
   variable: "--font-playfair",
 });
 export const metadata: Metadata = {

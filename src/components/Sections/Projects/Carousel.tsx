@@ -7,26 +7,28 @@ import { AnimatePresence, motion } from "framer-motion";
 export default function Carousel({ filteredProjects }: { filteredProjects: Project[] }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(1);
-  const [windowWidth, setWindowWidth] = useState(0);
+  const [mounted, setMounted] = useState(false);
+  const [isXl, setIsXl] = useState(false);
 
-  // Déterminer le nombre d'items par page selon la largeur (breakpoint xl = 1280px)
-  const itemsPerPage = windowWidth < 1280 ? 1 : 2;
 
-  // Écouter les changements de taille de fenêtre
   useEffect(() => {
-    // Initialiser avec la largeur actuelle
-    setWindowWidth(window.innerWidth);
+    setMounted(true);
 
-    const handleResize = () => {
-      setWindowWidth(window.innerWidth);
-    };
+    const media = window.matchMedia("(min-width: 1280px)");
+    setIsXl(media.matches);
 
-    window.addEventListener("resize", handleResize);
+    const listener = (e: MediaQueryListEvent) => setIsXl(e.matches);
+    media.addEventListener("change", listener);
 
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
+    return () => media.removeEventListener("change", listener);
   }, []);
+
+  // Toujours afficher 1 item avant le montage (mobile-first)
+  const itemsPerPage = mounted && isXl ? 2 : 1;
+
+  useEffect(() => {
+    if (mounted) setCurrentIndex(0);
+  }, [itemsPerPage, mounted]);
 
 
   // Calculer le nombre total de pages
@@ -117,7 +119,7 @@ export default function Carousel({ filteredProjects }: { filteredProjects: Proje
             >
               <h3 className="text-center">{p.title}</h3>
 
-              <div className="w-full max-w-[500px] xl:max-w-[350px] relative aspect-[7/4]">
+              <div className="w-full max-w-[500px] relative aspect-[7/4]">
                 <Image
                   src={p.imageSrc}
                   alt={`Aperçu du projet ${p.title}`}

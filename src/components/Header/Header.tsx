@@ -1,4 +1,3 @@
-import styles from "./Header.module.css";
 
 export default function Header() {
   return (
@@ -11,7 +10,7 @@ export default function Header() {
 
       {/* Nom */}
       <h1
-        className={`${styles.animatedName} text-xl md:text-6xl font-bold tracking-wide text-white drop-shadow-lg transition-all`}
+        className={`animatedName text-xl md:text-6xl font-bold tracking-wide text-white drop-shadow-lg transition-all`}
       >
         <span className="text-blue-50">Romain</span>{" "}
         <span className="text-blue-400">WIRTH</span>
@@ -19,19 +18,19 @@ export default function Header() {
 
       {/* Ligne animée */}
       <div
-        className={`${styles.animatedLine} h-[2px] w-25 md:w-50 bg-blue-500 mt-4 mb-6`}
+        className={`animatedLine h-[2px] w-25 md:w-50 bg-blue-500 mt-4 mb-6`}
       />
 
       {/* Rôle */}
       <p
-        className={`${styles.animatedRole} text-sm md:text-xl font-light tracking-wide text-blue-50`}
+        className={`animatedRole text-sm md:text-xl font-light tracking-wide text-blue-50`}
       >
         Développeur Web
       </p>
 
       {/* Slogan */}
       <p
-        className={`${styles.animatedSlogan} italic mt-6  text-blue-300 text-sm md:text-xl font-playfair`}
+        className={`animatedSlogan italic mt-6  text-blue-300 text-sm md:text-xl font-playfair`}
       >
         {/* eslint-disable-next-line */}
         "Your vision. My code."
