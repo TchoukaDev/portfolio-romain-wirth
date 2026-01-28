@@ -53,9 +53,9 @@ export const metadata: Metadata = {
     "portfolio",
     "React",
     "Nextjs",
-    "JavaScript",
+    "Site vitrine",
+    "Haute-Marne",
     "freelance",
-    "frontend",
     "WordPress",
   ],
   openGraph: {
