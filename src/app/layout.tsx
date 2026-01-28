@@ -2,8 +2,40 @@ import Footer from "@/components/Footer/Footer";
 import "./globals.css";
 import Header from "@/components/Header/Header";
 import Navbar from "@/components/Navbar/Navbar";
+import localFont from "next/font/local";
 import { Metadata } from "next";
 
+const raleway = localFont({
+  src: [
+    {
+      path: "./fonts/Raleway-Regular.woff2",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "./fonts/Raleway-Bold.woff2",
+      weight: "700",
+      style: "normal",
+    },
+  ],
+  variable: "--font-raleway",
+});
+
+const playfair = localFont({
+  src: [
+    {
+      path: "./fonts/PlayfairDisplay-Regular.woff2",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "./fonts/PlayfairDisplay-Italic.woff2",
+      weight: "400",
+      style: "italic",
+    },
+  ],
+  variable: "--font-playfair",
+});
 export const metadata: Metadata = {
   title: {
     default: "Romain WIRTH | Développeur Web",
@@ -61,9 +93,9 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="fr">
+    <html lang="fr" className={`${raleway.variable} ${playfair.variable}`}>
       <body className="bg-primary text-blue-50 relative font-raleway min-h-screen cursor-default">
-           <Navbar />
+        <Navbar />
         <Header />
         {children}
         <Footer />

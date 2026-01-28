@@ -1,38 +1,40 @@
 @import "tailwindcss";
 
-@font-face {
+/* @font-face {
   font-family: "Raleway";
-  src: url("/assets/fonts/Raleway-Regular.ttf") format("truetype");
+  src: url("/assets/fonts/Raleway-Regular.woff2") format("truetype");
   font-weight: 400;
   font-style: normal;
 }
+
 @font-face {
   font-family: "Raleway";
-  src: url("/assets/fonts/Raleway-Bold.ttf") format("truetype");
+  src: url("/assets/fonts/Raleway-Bold.woff2") format("truetype");
   font-weight: 700;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Playfair Display";
-  src: url("/assets/fonts/PlayfairDisplay-Regular.ttf") format("truetype");
+  src: url("/assets/fonts/PlayfairDisplay-Regular.woff2") format("truetype");
   font-weight: 400;
   font-style: normal;
 }
+
 @font-face {
   font-family: "Playfair Display";
-  src: url("/assets/fonts/PlayfairDisplay-Italic.ttf") format("truetype");
+  src: url("/assets/fonts/PlayfairDisplay-Italic.woff2") format("truetype");
   font-weight: 400;
   font-style: italic;
-}
+} */
 
 * {
   box-sizing: border-box;
 }
 
 @theme {
-  --font-raleway: "Raleway", "sans-serif";
-  --font-playfair: "Playfair Display", "serif";
+  --font-raleway: var(--font-raleway), "sans-serif";
+  --font-playfair: var(--font-playfair), "serif";
   --color-primary: #0d1325;
   --color-secondary: #0a0f1f;
   --color-tertiary: #657ac9;
@@ -47,10 +49,11 @@
 @layer components {
 
   .card {
-    @apply bg-secondary px-5 py-5 sm:px-10 md:px-20 sm:py-10  w-full rounded-xl text-sm md:text-base shadow-lg shadow-blue-900/40 opacity-0 transition-all;
+    @apply bg-secondary px-5 py-5 sm:px-10 md:px-20 sm:py-10 w-full rounded-xl text-sm md:text-base shadow-lg shadow-blue-900/40 opacity-0 transition-all;
 
     backface-visibility: hidden;
-    transform: translateZ(0); /* force le GPU mais garde la netteté */
+    transform: translateZ(0);
+    /* force le GPU mais garde la netteté */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -58,14 +61,17 @@
   .card.card.in-view {
     opacity: 1;
   }
+
   .formError {
     @apply text-red-500 font-semibold text-center my-1 text-sm;
   }
+
   .formSuccess {
     @apply text-shadow-xs text-shadow-blue-400 my-1 text-center;
   }
+
   .input {
-    @apply w-full max-w-full sm:w-[450px] border text-primary font-semibold border-gray-400 rounded px-4 pt-5 md:pt-7 pb-2 bg-gray-100 text-sm  placeholder-transparent focus:outline-none focus:ring-3 focus:ring-blue-500  shadow-sm shadow-blue-400;
+    @apply w-full max-w-full sm:w-[450px] border text-primary font-semibold border-gray-400 rounded px-4 pt-5 md:pt-7 pb-2 bg-gray-100 text-sm placeholder-transparent focus:outline-none focus:ring-3 focus:ring-blue-500 shadow-sm shadow-blue-400;
   }
 
   h2 {
@@ -73,7 +79,7 @@
   }
 
   h3 {
-    @apply text-xs sm:text-lg italic font-semibold  text-blue-300;
+    @apply text-xs sm:text-lg italic font-semibold text-blue-300;
   }
 }
 
@@ -84,6 +90,7 @@ input:-webkit-autofill:focus {
     background-color 600000s 0s,
     color 600000s 0s;
 }
+
 input[data-autocompleted] {
   background-color: transparent !important;
 }
