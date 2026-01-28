@@ -122,6 +122,7 @@ export default function Carousel({ filteredProjects }: { filteredProjects: Proje
                   src={p.imageSrc}
                   alt={`Aperçu du projet ${p.title}`}
                   fill
+                  loading="lazy"
                   className="object-cover rounded"
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
