@@ -16,10 +16,10 @@ export default function Navbar() {
 
   const links = [
     { name: "À propos", id: "about" },
-    { name: "Services", id: "services" },
-    { name: "Stack", id: "stack" },
+    { name: "Sites vitrines", id: "vitrines" },
+    { name: "Sur-mesure", id: "custom-made" },
+    { name: "Technologies", id: "stack" },
     { name: "Réalisations", id: "projects" },
-    { name: "Applications sur-mesure", id: "advanced" },
     { name: "Témoignages", id: "testimonials" },
     { name: "Contact", id: "contact" },
   ];

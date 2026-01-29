@@ -1,3 +1,5 @@
+import Button from "@/components/Button/Button";
+
 export default function Testimonials() {
   const testimonials = [
     {
@@ -24,7 +26,7 @@ export default function Testimonials() {
               <p className="italic leading-relaxed pt-2">{testimonial.quote}</p>
               <span className="text-blue-400 text-4xl leading-none font-playfair self-end">&quot;</span>
             </div>
-            
+
             <div className="border-t border-blue-500/20 pt-4 space-y-1">
               <h3 className="mb-1">{testimonial.name}</h3>
               <p className="text-xs sm:text-sm text-gray-300">{testimonial.job}</p>

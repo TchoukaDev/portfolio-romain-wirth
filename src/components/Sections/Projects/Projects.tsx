@@ -1,11 +1,10 @@
 "use client";
 
 import Button from "@/components/Button/Button";
-import Image from "next/image";
-import { useState } from "react";
 import { SiFirebase, SiMongodb, SiStrapi, SiWordpress } from "react-icons/si";
 import { SiNextdotjs, SiReact } from "react-icons/si";
 import Carousel from "./Carousel";
+import useProjectFiltersStore from "@/components/ProjectFiltersStore/ProjectFiltersStore";
 
 export type Project = {
   id: number;
@@ -19,7 +18,8 @@ export type Project = {
 }
 
 export default function Projects() {
-  const [filter, setFilter] = useState("all");
+  const filter = useProjectFiltersStore((state) => state.filter);
+  const setFilter = useProjectFiltersStore((state) => state.setFilter);
 
   const projects: Project[] = [
     {
@@ -31,7 +31,7 @@ export default function Projects() {
       url: "https://clothilde-baudet.fr/",
       techno: <SiWordpress />,
       technoName: "WordPress",
-      category: "vitrine",
+      category: "vitrines",
     },
     {
       id: 2,
@@ -42,14 +42,14 @@ export default function Projects() {
       url: "https://flowerpower.romainwirth.fr/",
       techno: <SiWordpress />,
       technoName: "WordPress",
-      category: "vitrine",
+      category: "vitrines",
     },
     {
       id: 3,
       title: "Marche aquatique - Les randonneurs des sables",
       imageSrc: "/projects/lesrandonneurs.png",
       description:
-        "Site dynamique pour un club de marche aquatique : actualités, planning, présentation des activités. Certaines sections sont réservées aux membres du club. Gestion de contenu en autonomie par les administrateurs.",
+        "Site sur-mesure et dynamique pour un club de marche aquatique : actualités, planning, présentation des activités. Certaines sections sont réservées aux membres du club. Gestion de contenu en autonomie par les administrateurs.",
       url: "https://les-randonneurs-des-sables.vercel.app/",
       techno: (
         <>
@@ -58,7 +58,7 @@ export default function Projects() {
         </>
       ),
       technoName: "Next.js et Strapi",
-      category: "sur-mesure",
+      category: "custom-made",
     },
     {
       id: 4,
@@ -74,14 +74,14 @@ export default function Projects() {
         </>
       ),
       technoName: "React et Firebase",
-      category: "sur-mesure",
+      category: "custom-made",
     },
     {
       id: 5,
       title: "Fitbuilder",
       imageSrc: "/projects/fitbuilder.png",
       description:
-        "Application de suivi d'entraînement : création de programmes et d'exercices personnalisés, suivi des séances, statistiques de progression.",
+        "Application de suivi d'entraînement de musculation : création de programmes et d'exercices personnalisés, suivi des séances, statistiques de progression.",
       url: "https://fitbuilder.romainwirth.fr/",
       techno: (
         <>
@@ -90,9 +90,10 @@ export default function Projects() {
         </>
       ),
       technoName: "Next.js et MongoDB",
-      category: "sur-mesure",
+      category: "custom-made",
     },
   ];
+  console.log(filter);
 
   const filteredProjects =
     filter === "all" ? projects : projects.filter((p) => p.category === filter);
@@ -109,16 +110,19 @@ export default function Projects() {
           className="px-4 py-2 bg-primary border border-blue-50 rounded-lg text-sm font-medium transition-all cursor-pointer hover:border-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent"
         >
           <option value="all">Tous les projets</option>
-          <option value="vitrine">Sites vitrines</option>
-          <option value="sur-mesure">Applications sur-mesure</option>
+          <option value="vitrines">Sites vitrines</option>
+          <option value="custom-made">Sur-mesure</option>
         </select>
       </div>
       <Carousel filteredProjects={filteredProjects} />
 
       <div className="text-center mt-15">
         {/* eslint-disable-next-line */}
-        <p className="mb-4">Envie d'un site qui vous ressemble?</p>
-        <Button aria-label="Discutons-en" href="#contact">Discutons-en</Button>
+        <p className="mb-4">Envie d'un projet qui vous ressemble?</p>
+        <div className="cta-container"><Button href="#contact" variant="primary">
+          Obtienir un devis gratuit
+        </Button>
+        </div>
       </div>
     </section>
   );

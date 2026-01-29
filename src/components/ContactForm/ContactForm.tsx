@@ -302,7 +302,7 @@ export default function ContactForm() {
               aria-errormessage={clientErrors.message ? "message-error" : undefined}
             />
             <Label htmlFor="message" value={message}>
-              Votre message*
+              Écrivez votre message*
             </Label>
             {/* Erreur client */}
             {clientErrors?.message && (
