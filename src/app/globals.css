@@ -55,6 +55,11 @@
     @apply w-full max-w-full sm:w-[450px] border text-primary font-semibold border-gray-400 rounded px-4 pt-5 md:pt-7 pb-2 bg-gray-100 text-sm placeholder-transparent focus:outline-none focus:ring-3 focus:ring-blue-500 shadow-sm shadow-blue-400;
   }
 
+
+  .cta-container {
+    @apply flex flex-col sm:flex-row justify-center items-center gap-5 sm:gap-15 mt-8 max-w-xl mx-auto;
+  }
+
   .icon {
     width: clamp(25px, 3vw, 40px);
     height: clamp(25px, 3vw, 40px);

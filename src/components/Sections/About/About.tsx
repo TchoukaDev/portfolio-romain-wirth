@@ -12,23 +12,21 @@ export default function About() {
       <div className="flex flex-col xl:flex-row justify-center lg:justify-evenly items-center gap-8 lg:gap-10 xl:gap-15">
 
         <div className="space-y-5 text-center xl:text-left ">
+          <p>
+            Je suis Romain Wirth, développeur web freelance.
+            Mon objectif : créer des sites web clairs, fonctionnels et adaptés à vos besoins.
+          </p>
 
           <p>
-            Je suis Romain Wirth, développeur web freelance en reconversion
-            professionnelle.
-          </p>{" "}
+            Pour les artisans, indépendants et petites entreprises, je développe des sites vitrines qui reflètent votre image et améliorent votre présence en ligne.
+          </p>
+
           <p>
-            {/* eslint-disable-next-line */}
-            J'accompagne les artisans, indépendants et petites entreprises qui veulent un site à leur image : clair, professionnel et facile à faire
-            vivre au quotidien. </p>
-          {/* eslint-disable-next-line */}
-          <p>J'aide également les associations à développer
-            leur présence en ligne.
-          </p>{" "}
+            Pour des projets plus spécifiques, je crée aussi des sites web sur mesure avec des technologies fiables et modernes, pour des interfaces dynamiques et évolutives.
+          </p>
+
           <p>
-            {/* eslint-disable-next-line */}
-            Que ce soit pour créer votre premier site, moderniser un site existant ou y ajouter des fonctionnalités pratiques, je m'adapte à vos besoins
-            et vous explique tout, simplement.
+            Je vous accompagne à chaque étape et vous explique simplement les solutions choisies, pour que vous gardiez le contrôle de votre outil.
           </p>
         </div>
         <div className="relative lg:size-64 md:size-52 size-40 shrink-0 shadow-2xl shadow-blue-500/50 rounded-full">
@@ -38,10 +36,17 @@ export default function About() {
 
       </div>
       <p className="font-bold text-center my-10">{/* eslint-disable-next-line */}
-        Un interlocuteur unique, disponible et à l'écoute, pour un site qui
+        Un interlocuteur unique, disponible et à l'écoute, pour un projet qui
         vous ressemble et qui travaille pour vous.
       </p>
-      <Button aria-label="Voir mes réalisations" href="#projects">Voir mes réalisations</Button>
+      <div className="cta-container">
+        <Button href="#vitrines" variant="secondary">
+          Construire votre site vitrine
+        </Button>
+        <Button href="#custom-made" variant="primary">
+          Créer votre projet sur mesure
+        </Button>
+      </div>
     </section>
   );
 }
