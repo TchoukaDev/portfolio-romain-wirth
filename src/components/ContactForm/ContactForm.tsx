@@ -314,7 +314,7 @@ export default function ContactForm() {
             )}
           </div>
           {/* Bouton d'envoi */}{" "}
-          <div className="block w-[150px] mx-auto">
+          <div className="block min-w-[150px] mx-auto">
             <Button disabled={isSubmitting || isSubmitting} type="submit" aria-label="Envoyer le message">
               {isSubmitting || isPending ? (
                 <span className="flex items-center text-sand justify-center gap-2">
